@@ -1,0 +1,42 @@
+#Conjunto de pruebas para suma
+9999
+10000
+9999
+-10001
+0
+#Notese, que en este caso la suma si es correcta ya que SEQ puede representar numeros de longitud mucho mayor
+2147483653
+149
+-45
+1247687325
+#Conjunto de pruebas para resta
+-1
+1
+-1
+0
+25
+-13
+-43
+12222265444911
+113
+#Conjunto de pruebas para multiplicacion
+0
+0
+0
+-4563
+1234
+10296
+128064
+421
+619200
+#Conjunto de pruebas para numeros muy grandes
+-1
+1233615327128192712821921
+447796572313619012275329
+#Un gugol, un uno seguido de cien ceros. Escrito en el sistema binario ocupa 333 bits
+10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001
+6066973318675108888376006346662012629
+0
+0
+100000000000000000000000000000
+215248766593766908550890549137
