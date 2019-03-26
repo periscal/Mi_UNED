@@ -3,13 +3,13 @@ package es.uned.lsi.eped.pract2018_2019;
 import es.uned.lsi.eped.DataStructures.List;
 
 public class ValueSeq extends Value {
-	/* Atributo que guarda el valor numérico */
+	/* Atributo que guarda el valor numerico */
 	private List<Integer> listaEnteros;
 	private ValorConAcarreo valor;
 	
 	/* Constructor: recibe un String con el valor numerico */
 	public ValueSeq(String s) {
-		listaEnteros= new List<Integer>();
+		listaEnteros= new List<>();
 		fragmentarNumero(s,listaEnteros);
 		imprimeLista();
 		valor = new ValorConAcarreo();
@@ -17,44 +17,40 @@ public class ValueSeq extends Value {
 
 	/*Metodo que transforma el valor numerico en un String */
 	public String toString() {
-		String valor="";
-		for(int i=0;i<=listaEnteros.size();i++) valor=String.valueOf(listaEnteros.get(i))+" "+valor;
-		return valor;
+		String entero="";
+		for(int i=1;i<=listaEnteros.size();i++) entero=String.valueOf(listaEnteros.get(i))+" "+entero;
+		return entero;
 	}
 
 	/* Metodo que modifica el valor numerico llamante, sumandole el valor numerico paremetro */
 	public void addValue(Value n) {
-		//List<Integer> resultado = new List<>();
 		List<Integer> lista2 = ((ValueSeq) n).getListaEnteros();
 
 		int longitud1 = this.listaEnteros.size();
 		int longitud2 = lista2.size();
 		int longitudMayor;
 		int longitudMenor;
-		List<Integer> listaMayor;
-		List<Integer> listaMenor;
 
-		//Otra forma de escribirlo: longitudMayor = longitud1>=longitud2 ?  longitud1 : longitud2; 
+		/* Otra forma de escribirlo: longitudMayor = longitud1>=longitud2 ?  longitud1 : longitud2; */
 		if(longitud1>=longitud2) {
-			longitudMayor=longitud1; listaMayor=listaEnteros;
-			longitudMenor=longitud2; listaMenor=lista2;
+			longitudMayor=longitud1;
+			longitudMenor=longitud2;
 		}
 		else {
-			longitudMayor=longitud2; listaMayor=lista2;
-			longitudMenor=longitud1; listaMenor=listaEnteros;
+			longitudMayor=longitud2;
+			longitudMenor=longitud1;
 		}
 
 		int pos=1;
-		int acarreo=0;
 		while(pos<=longitudMenor) {
-			Integer entero1 =listaEnteros.get(pos);	//System.out.println("pos1: "+pos+"---"+lista1);
-			entero1+=lista2.get(pos)+valor.acarreo; 		//System.out.println("pos2: "+pos+"---"+lista1+"\n");
+			Integer entero1 =listaEnteros.get(pos);
+			entero1+=lista2.get(pos)+valor.acarreo; 
 			valor.acarreo(entero1);
 			listaEnteros.set(pos, valor.entero);
 			pos++;
 		}
 		if(longitud1>=longitud2) {
-			while(acarreo==1) {
+			while(valor.acarreo==1) {
 				Integer entero1 =listaEnteros.get(pos);	
 				entero1+=valor.acarreo; 
 				valor.acarreo(entero1);
@@ -71,7 +67,6 @@ public class ValueSeq extends Value {
 				pos++;
 			}
 		}
-
 	}
 
 	/* Metodo que modifica el valor numérico llamante, restándole el valor numérico parámetro */
@@ -149,7 +144,7 @@ public class ValueSeq extends Value {
 	}
 
 	private void imprimeLista() {
-		for(int i=listaEnteros.size();i>=0;i--) System.out.print(listaEnteros.get(i)+" ");
+		for(int i=listaEnteros.size();i>0;i--) System.out.print(listaEnteros.get(i)+" ");
 		System.out.println("\n");
 	}
 
