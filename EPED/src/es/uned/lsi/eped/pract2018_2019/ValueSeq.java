@@ -6,7 +6,8 @@ public class ValueSeq extends Value {
 	/* Atributo que guarda el valor numerico */
 	private List<Integer> listaEnteros;
 	private ValorConAcarreo valor;
-	
+	//int longitud; 
+
 	/* Constructor: recibe un String con el valor numerico */
 	public ValueSeq(String s) {
 		listaEnteros= new List<>();
@@ -42,41 +43,95 @@ public class ValueSeq extends Value {
 		}
 
 		int pos=1;
+		valor.acarreo=0;
+		Integer entero1;
+		Integer entero2;
 		while(pos<=longitudMenor) {
-			Integer entero1 =listaEnteros.get(pos);
-			entero1+=lista2.get(pos)+valor.acarreo; 
-			valor.acarreo(entero1);
+			entero1 =listaEnteros.get(pos);
+			entero2=lista2.get(pos);
+			entero1+=entero2+valor.acarreo; 
+			valor.acarreoSuma(entero1);
 			listaEnteros.set(pos, valor.entero);
 			pos++;
 		}
 		if(longitud1>=longitud2) {
 			while(valor.acarreo==1) {
-				Integer entero1 =listaEnteros.get(pos);	
+				entero1 =listaEnteros.get(pos);	
 				entero1+=valor.acarreo; 
-				valor.acarreo(entero1);
+				valor.acarreoSuma(entero1);
 				listaEnteros.set(pos, valor.entero);
 				pos++;
 			}
 		}
 		else {
 			while(pos<=longitudMayor) {
-				Integer entero2 =lista2.get(pos);	
+				entero2 =lista2.get(pos);	
 				entero2+=valor.acarreo; 
-				valor.acarreo(entero2);
+				valor.acarreoSuma(entero2);
 				listaEnteros.set(pos, valor.entero);
 				pos++;
 			}
 		}
+		if(valor.acarreo==1)listaEnteros.insert(pos, 1);
 	}
 
-	/* Metodo que modifica el valor numérico llamante, restándole el valor numérico parámetro */
-	/* Sabemos que el mayor es el valor numérico llamante */
+	/* Metodo que modifica el valor numerico llamante, restandole el valor numerico parametro */
+	/* Sabemos que el mayor es el valor numerico llamante */
 	public void subValue(Value n) {
+		List<Integer> lista2 = ((ValueSeq) n).getListaEnteros();
+
+		int longitud2 = lista2.size();
+
+		int pos=1;
+		valor.acarreo=0;
+		Integer entero1;
+		Integer entero2;
+		while(pos<=longitud2) {
+			entero1 =listaEnteros.get(pos);
+			entero2 =lista2.get(pos);
+			entero1-=entero2+valor.acarreo; 
+			valor.acarreoResta(entero1);
+			listaEnteros.set(pos, valor.entero);
+			pos++;
+		}
+		while(valor.acarreo==1) {
+			entero1 =listaEnteros.get(pos);	
+			entero1-=valor.acarreo; 
+			valor.acarreoResta(entero1);
+			listaEnteros.set(pos, valor.entero);
+			pos++;
+		}
+		this.reajustarLista();
 	}
 
 	/* Método que modifica el valor numérico llamante, restándolo del valor numérico parámetro */
 	/* Sabemos que el mayor es el valor numérico parámetro */
 	public void subFromValue(Value n) {
+		List<Integer> lista2 = ((ValueSeq) n).getListaEnteros();
+		System.out.println("----Usando subFromValue -------");
+		int longitud1 = this.listaEnteros.size();
+		int longitud2 = lista2.size();
+		int pos=1;
+		valor.acarreo=0;
+		Integer entero1;
+		Integer entero2;
+		while(pos<=longitud1) {
+			entero1 =listaEnteros.get(pos);
+			entero2 =lista2.get(pos);
+			entero2-=entero1+valor.acarreo; 
+			valor.acarreoResta(entero2);
+			listaEnteros.set(pos, valor.entero);
+			pos++;
+		}
+		while(pos<=longitud2) {
+			entero2 =lista2.get(pos);	
+			entero2-=valor.acarreo; 
+			valor.acarreoResta(entero2);
+			listaEnteros.set(pos, valor.entero);
+			pos++;
+		}
+		this.reajustarLista();
+
 	}
 
 	/* Método que modifica el valor numérico llamante, multiplicándolo por el valor numérico parámetro */
@@ -84,20 +139,38 @@ public class ValueSeq extends Value {
 	}
 
 	/* Método que indica si el valor numérico llamante es mayor que el valor numérico parámetro */
+	/**
+	 * Primero: compara las longitudes de los enteros, el de mayor longitud ser� necesariamente el n�mero m�s grande
+	 * Segundo: si son de longitudes iguales, se comparan cada fragmento de ambos n�meros almacenados en listas,
+	 * 			empezando por los d�gitos de m�s a la izquierda del n�mero (los que se sit�an al final de la cola de la lista)
+	 */
 	public boolean greater(Value n) {
-		return false;
+		List<Integer> lista2 = ((ValueSeq) n).getListaEnteros();
+		int longitud1 = this.listaEnteros.size();
+		int longitud2 = lista2.size();
+		boolean mayor=false;
+
+		if     (longitud1>longitud2) mayor=true;
+		else if(longitud1<longitud2) mayor=false;
+		else {
+			int pos=longitud1;
+			while(listaEnteros.get(pos).equals(lista2.get(pos)) && pos>0) pos--;
+			if(pos==0) mayor=false;
+			else mayor=listaEnteros.get(pos)>lista2.get(pos)? true : false;
+		}
+		return mayor;
 	}
 
 	/* Método que indica si el valor numérico es cero */
 	public boolean isZero() {
-		return false;
+		return listaEnteros.size()==1 && listaEnteros.get(1)==0;
 	}
 
-
+	// ==============================================================================================//
 	public List<Integer> getListaEnteros() {
 		return listaEnteros;
 	}
-	
+
 	/**
 	 * Fragmenta un String en una lista de numeros enteros
 	 * @param s
@@ -132,15 +205,31 @@ public class ValueSeq extends Value {
 	private class ValorConAcarreo{
 		Integer entero;
 		int acarreo=0;
+		int cotaEntero=1000000000;
 
-		public void acarreo(Integer e) {
+		public void acarreoSuma(Integer e) {
 			acarreo=0;
-			if(e>1000000000) {
-				e-=1000000000;
+			if(e>cotaEntero) {
+				e-=cotaEntero;
 				acarreo=1;
 			}
 			entero=e;
 		}
+
+		public void acarreoResta(Integer e) {
+			acarreo=0;
+			if(e<0) {
+				e+=cotaEntero;
+				acarreo=1;
+			}
+			entero=e;
+		}
+	}
+
+	private void reajustarLista() {
+		int pos =  listaEnteros.size();
+		while(listaEnteros.get(pos).equals(0))	listaEnteros.remove(pos--);
+		if(listaEnteros.isEmpty()) listaEnteros.insert(1,0);
 	}
 
 	private void imprimeLista() {
