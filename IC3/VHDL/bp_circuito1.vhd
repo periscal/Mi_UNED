@@ -21,7 +21,7 @@ architecture bp_arch of bp_circuito1 is
 	
 begin
 	-- Instancia del circuito que va a ser testeado
-	UUT: circuito1 port map (
+	UUT: component circuito1 port map (
 		F1 => test_out_F1,
 		F2 => test_out_F2,
 		A => test_in_A,
@@ -39,14 +39,14 @@ begin
 		test_in_A <= '1'; test_in_B <= '0'; test_in_C <='0'; wait for 100 ns;
 		test_in_A <= '1'; test_in_B <= '0'; test_in_C <='1'; wait for 100 ns;
 		test_in_A <= '1'; test_in_B <= '1'; test_in_C <='0'; wait for 100 ns;
-		test_in_A <= '1'; test_in_B <= '1'; test_in_C <='1'; wait for 100 ns;
+		test_in_A <= '1'; test_in_B <= '1'; test_in_C <='1'; wait;
 	end process;
 	
 	--Verificación de las salidas
 	verif : process
 		variable error_status : boolean;
 	begin
-		--wait on test_in_A,test_in_B,test_in_C; wait for 100 ns;
+		wait on test_in_A,test_in_B,test_in_C; wait for 100 ns;
 		if(
 			(test_in_A='0' and test_in_B='0'and test_in_C='0' and test_out_F1='0' and test_out_F2='0')or
 			(test_in_A='0' and test_in_B='0'and test_in_C='1' and test_out_F1='0' and test_out_F2='1')or
@@ -63,7 +63,7 @@ begin
 		end if;
 		
 		assert not error_status report "Test Fallado." severity note;
-		
+		wait;
 	end process verif;
 end architecture bp_arch;
 			
