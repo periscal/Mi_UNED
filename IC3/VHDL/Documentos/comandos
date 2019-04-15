@@ -1,6 +1,0 @@
-cd Documentos/Control_de_Versiones/Git/Mi_UNED/IC3/VHDL
-ghdl -a ejercicio1.vhd
-ghdl -a bp_circuito1.vhd
-ghdl -e bp_circuito1
-ghdl -r bp_circuito1 --vcd=circuito1.vcd
-gtkwave circuito1.vcd

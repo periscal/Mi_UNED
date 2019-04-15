@@ -74,7 +74,7 @@ architecture circuito_estruc of circuito1 is
 	end component and2;
 		
 begin
-	-- Instancioación y coneción de los componentes
+	-- Instanciación y coneción de los componentes
 	NOT1_A : component not1 port map(x0 => A, y0 => notA);
 	NOT1_B : component not1 port map(x0 => B, y0 => notB);
 	OR2_1  : component or2  port map(x0 => notA, x1 => notB, y0 => notA_or_notB);

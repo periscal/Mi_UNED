@@ -1,0 +1,8 @@
+v 4
+file . "bp_ejercicio2.vhd" "1850dd90dd66d0c09c395109f33a6cc5d5e8e6d3" "20190415182608.836":
+  entity bp_fun at 2( 45) + 0 on 15;
+  architecture bp_fun of bp_fun at 10( 216) + 0 on 16;
+file . "arch_fun2.vhd" "b2ebd7e3c1815a844f9e91d2616512e855e5ff10" "20190415182500.930":
+  architecture circuito_estruct of fun2 at 2( 36) + 0 on 14;
+file . "fun2.vhd" "2643a5e12418f2591c2a40642754fa15fda9eaef" "20190415182454.448":
+  entity fun2 at 2( 36) + 0 on 12;

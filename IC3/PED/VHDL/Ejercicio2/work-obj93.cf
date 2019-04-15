@@ -1,0 +1,20 @@
+v 4
+file . "fun2.vhd" "2643a5e12418f2591c2a40642754fa15fda9eaef" "20190415204657.192":
+  entity fun2 at 2( 36) + 0 on 45;
+file . "and2.vhd" "7c6732480dcc9a67e0479bd1c500077b5aa139ca" "20190415194103.031":
+  entity and2 at 3( 37) + 0 on 12;
+  architecture and2 of and2 at 11( 195) + 0 on 13;
+file . "arch_estructura_fun2.vhd" "e7d9353767baf4db4b952f10dc688c358bd1b978" "20190415204657.202":
+  architecture arch_estructura_fun2 of fun2 at 2( 36) + 0 on 46;
+file . "bp_arch_fun2.vhd" "439ec1615187e069a222d5cf5594af7d535bff9f" "20190415204657.214":
+  entity bp_arch_fun2 at 2( 45) + 0 on 47;
+  architecture bp_arch_fun2 of bp_arch_fun2 at 10( 228) + 0 on 48;
+file . "not1.vhd" "f58103dbda422123727dec417c8c38f793710aa5" "20190415194103.040":
+  entity not1 at 2( 36) + 0 on 18;
+  architecture not1 of not1 at 10( 187) + 0 on 19;
+file . "or2.vhd" "99abd9c3590e7f3be7fdf3ce4ba8f45ca0e720d3" "20190415194103.041":
+  entity or2 at 2( 36) + 0 on 20;
+  architecture or2 of or2 at 10( 191) + 0 on 21;
+file . "xor2.vhd" "302680de7c678637b9737d70f223ebfd6f29115a" "20190415194103.041":
+  entity xor2 at 1( 0) + 0 on 22;
+  architecture xor2 of xor2 at 9( 157) + 0 on 23;
