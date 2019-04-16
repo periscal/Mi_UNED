@@ -1,11 +1,44 @@
 cd Documentos/Control_de_Versiones/Git/Mi_UNED/IC3/VHDL
-ghdl -a ejercicio1.vhd
-ghdl -a bp_circuito1.vhd
-ghdl -e bp_circuito1
-ghdl -r bp_circuito1 --vcd=circuito1.vcd
-gtkwave circuito1.vcd
 
 --------------------------------------------
+ghdl -a and2.vhd
+ghdl -a or2.vhd
+ghdl -a not1.vhd
+ghdl -a fun1.vhd
+ghdl -a arch_comp_fun1.vhd
+ghdl -a bp_arch_fun1.vhd
+ghdl -e bp_arch_fun1
+ghdl -r bp_arch_fun1 --vcd=bp_arch_fun1.vcd
+gtkwave bp_arch_fun1.vcd
+
+ghdl -a and2.vhd
+ghdl -a or2.vhd
+ghdl -a not1.vhd
+ghdl -a fun1.vhd
+ghdl -a arch_estructura_fun1.vhd
+ghdl -a bp_arch_fun1.vhd
+ghdl -e bp_arch_fun1
+ghdl -r bp_arch_fun1 --vcd=bp_arch_fun1.vcd
+gtkwave bp_arch_fun1.vcd
+
+--------------------------------------------
+
+
+ghdl -a and2.vhd
+ghdl -a or2.vhd
+ghdl -a not1.vhd
+ghdl -a xor2.vhd
+ghdl -a fun2.vhd
+ghdl -a arch_comp_fun2.vhd
+ghdl -a bp_arch_fun2.vhd
+ghdl -e bp_arch_fun2
+ghdl -r bp_arch_fun2 --vcd=bp_arch_fun2.vcd
+gtkwave bp_arch_fun2.vcd
+
+ghdl -a and2.vhd
+ghdl -a or2.vhd
+ghdl -a not1.vhd
+ghdl -a xor2.vhd
 ghdl -a fun2.vhd
 ghdl -a arch_estructura_fun2.vhd
 ghdl -a bp_arch_fun2.vhd

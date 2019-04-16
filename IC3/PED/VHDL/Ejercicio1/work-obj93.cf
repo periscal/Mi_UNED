@@ -1,0 +1,19 @@
+v 4
+file . "arch_comp_fun1.vhd" "d09903f5161c2630f5c0a88adfbb76060cd2807d" "20190416160253.605":
+  architecture arch_comp_fun1 of fun1 at 5( 95) + 0 on 66;
+file . "not1.vhd" "f58103dbda422123727dec417c8c38f793710aa5" "20190416165314.272":
+  entity not1 at 2( 36) + 0 on 82;
+  architecture not1 of not1 at 10( 187) + 0 on 83;
+file . "and2.vhd" "7c6732480dcc9a67e0479bd1c500077b5aa139ca" "20190416165314.252":
+  entity and2 at 3( 37) + 0 on 78;
+  architecture and2 of and2 at 11( 195) + 0 on 79;
+file . "arch_estructura_fun1.vhd" "595bb64c444753dc7ccbdd9801a87cf13ba235e1" "20190416165314.288":
+  architecture arch_estructura_fun1 of fun1 at 5( 113) + 0 on 85;
+file . "fun1.vhd" "68ced16b03ac2fc6ad79bfde7d8a5ccf0d5d7e04" "20190416165314.280":
+  entity fun1 at 4( 80) + 0 on 84;
+file . "bp_arch_fun1.vhd" "cc6a80e509d6bfb1e185ebecd841ed345dc9e387" "20190416165314.302":
+  entity bp_arch_fun1 at 2( 45) + 0 on 86;
+  architecture bp_arch_fun1 of bp_arch_fun1 at 10( 228) + 0 on 87;
+file . "or2.vhd" "99abd9c3590e7f3be7fdf3ce4ba8f45ca0e720d3" "20190416165314.263":
+  entity or2 at 2( 36) + 0 on 80;
+  architecture or2 of or2 at 10( 191) + 0 on 81;
