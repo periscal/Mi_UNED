@@ -1,0 +1,24 @@
+[*]
+[*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
+[*] Tue Apr 16 16:11:50 2019
+[*]
+[dumpfile] "/home/juan/Documentos/Control_de_Versiones/Git/Mi_UNED/IC3/PED/VHDL/Ejercicio1/bp_arch_fun1.vcd"
+[dumpfile_mtime] "Tue Apr 16 16:02:53 2019"
+[dumpfile_size] 753
+[savefile] "/home/juan/Documentos/Control_de_Versiones/Git/Mi_UNED/IC3/PED/VHDL/Ejercicio1/cronograma_Comportamiento_fun1.gtkw"
+[timestart] 0
+[size] 888 339
+[pos] -1 -1
+*-28.153193 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 223
+[signals_width] 78
+[sst_expanded] 1
+[sst_vpaned_height] 60
+@28
+bp_arch_fun1.a
+bp_arch_fun1.b
+bp_arch_fun1.c
+bp_arch_fun1.f
+bp_arch_fun1.g
+[pattern_trace] 1
+[pattern_trace] 0
