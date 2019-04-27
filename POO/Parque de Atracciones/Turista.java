@@ -8,19 +8,18 @@ import java.util.ArrayList;
  */
 public abstract class Turista extends Persona
 {
-    // instance variables - replace the example below with your own
+    // Valores estaticos, iguales para todos las instancias de tipo "Turista"
     public static List<Turista> turistas = new ArrayList<>();
     public static long contadorIdTurista=0;
+    
+    //Atributos para cada Turista
     protected int nacimiento;
-    protected long  idTurista;   
+    protected long  idTurista; 
+    protected float descTipoTurista;
     /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y    a sample parameter for a method
-     * @return        the sum of x and y 
      */
     public Turista(String nombre, String apellido1, String apellido2, String nacimiento){
-        super(nombre,apellido1,apellido2);
+        super(nombre, apellido1, apellido2, null);
         this.idTurista = contadorIdTurista++;
     }
    

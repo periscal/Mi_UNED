@@ -1,4 +1,5 @@
 
+
 /**
  * Write a description of class Nino here.
  * 
@@ -13,10 +14,10 @@ public class Nino extends Turista
     /**
      * Constructor for objects of class Nino
      */
-    public Nino()
+    public Nino(String nombre, String apellido1, String apellido2, String nacimiento)
     {
-        // initialise instance variables
-        x = 0;
+        super(nombre,apellido1,apellido2,nacimiento);
+        descTipoTurista=50;
     }
 
     /**
