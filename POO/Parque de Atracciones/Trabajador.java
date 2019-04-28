@@ -19,6 +19,9 @@ public abstract class Trabajador extends Persona
      * @param  y    a sample parameter for a method
      * @return        the sum of x and y 
      */
+    public Trabajador(){
+        this.idTrabajador = contadorIdTrabajador++;
+    }
     public Trabajador(String nombre, String apellido1, String apellido2){
         super(nombre,apellido1,apellido2);
         this.idTrabajador = contadorIdTrabajador++;

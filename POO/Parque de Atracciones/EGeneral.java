@@ -1,4 +1,4 @@
-
+import java.time.LocalDateTime;
 /**
  * Write a description of class EGeneral here.
  * 
@@ -13,21 +13,9 @@ public class EGeneral extends Entrada
     /**
      * Constructor for objects of class EGeneral
      */
-    public EGeneral()
-    {
-        // initialise instance variables
-        x = 0;
+    public EGeneral(Persona p, LocalDateTime fecha){
+        super(p,fecha);
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public void aplicarVIP(){
     }
 }

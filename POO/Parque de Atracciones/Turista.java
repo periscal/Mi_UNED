@@ -18,8 +18,11 @@ public abstract class Turista extends Persona
     protected float descTipoTurista;
     /**
      */
+    public Turista(){
+        this.idTurista = contadorIdTurista++;
+    }
     public Turista(String nombre, String apellido1, String apellido2, String nacimiento){
-        super(nombre, apellido1, apellido2, null);
+        super(nombre, apellido1, apellido2);
         this.idTurista = contadorIdTurista++;
     }
    

@@ -1,7 +1,9 @@
 #BlueJ class context
 comment0.target=Persona
 comment0.text=\r\n\ Abstract\ class\ Persona\ -\ write\ a\ description\ of\ the\ class\ here\r\n\ \r\n\ @author\:\ \r\n\ Date\:\ \r\n
-comment1.params=nombre\ apellido1\ apellido2\ nacimiento
-comment1.target=Persona(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment1.params=
+comment1.target=Persona()
 comment1.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\ \r\n\ @param\ \ y\ \ \ \ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ \ \ \ \ \ the\ sum\ of\ x\ and\ y\ \r\n
-numComments=2
+comment2.params=nombre\ apellido1\ apellido2
+comment2.target=Persona(java.lang.String,\ java.lang.String,\ java.lang.String)
+numComments=3

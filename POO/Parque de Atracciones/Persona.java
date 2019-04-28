@@ -15,6 +15,8 @@ public abstract class Persona
      * @param  y    a sample parameter for a method
      * @return        the sum of x and y 
      */
+    public Persona(){
+    }
     public Persona(String nombre, String apellido1, String apellido2)
     {
         this.nombre     = nombre;

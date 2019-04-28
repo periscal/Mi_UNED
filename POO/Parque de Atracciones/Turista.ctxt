@@ -1,7 +1,9 @@
 #BlueJ class context
 comment0.target=Turista
-comment0.text=\n\ Abstract\ class\ Turista\ -\ write\ a\ description\ of\ the\ class\ here\n\ \n\ @author\:\ \n\ Date\:\ \n
-comment1.params=nombre\ apellido1\ apellido2\ nacimiento
-comment1.target=Turista(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
-comment1.text=\n
-numComments=2
+comment0.text=\r\n\ Abstract\ class\ Turista\ -\ write\ a\ description\ of\ the\ class\ here\r\n\ \r\n\ @author\:\ \r\n\ Date\:\ \r\n
+comment1.params=
+comment1.target=Turista()
+comment1.text=\r\n
+comment2.params=nombre\ apellido1\ apellido2\ nacimiento
+comment2.target=Turista(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+numComments=3
