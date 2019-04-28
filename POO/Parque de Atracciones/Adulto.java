@@ -13,10 +13,9 @@ public class Adulto extends Turista
     /**
      * Constructor for objects of class Adulto
      */
-    public Adulto()
+    public Adulto(String nombre, String apellido1, String apellido2, String nacimiento)
     {
-        // initialise instance variables
-        x = 0;
+        super(nombre,apellido1,apellido2,nacimiento);
     }
 
     /**

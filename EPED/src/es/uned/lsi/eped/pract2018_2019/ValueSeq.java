@@ -32,7 +32,8 @@ public class ValueSeq extends Value {
 		int longitudMayor;
 		int longitudMenor;
 
-		/* Otra forma de escribirlo: longitudMayor = longitud1>=longitud2 ?  longitud1 : longitud2; */
+		/* Otra forma de escribirlo: ç
+		 * longitudMayor = longitud1>=longitud2 ?  longitud1 : longitud2; */
 		if(longitud1>=longitud2) {
 			longitudMayor=longitud1;
 			longitudMenor=longitud2;
@@ -75,8 +76,13 @@ public class ValueSeq extends Value {
 		if(valor.acarreo==1)listaEnteros.insert(pos, 1);
 	}
 
-	/* Metodo que modifica el valor numerico llamante, restandole el valor numerico parametro */
-	/* Sabemos que el mayor es el valor numerico llamante */
+	/**
+	 * <h2><i> subValue</i></h2> 
+	 * <p><code>public void subValue(Value n)</code></p>
+	 * <p> Metodo que modifica el valor numerico llamante, restandole el valor numerico parametro. 
+	 * Sabemos que el mayor es el valor numerico llamante</p>
+	 * @param n - valor número que se le restará al valor del llamante
+	 */
 	public void subValue(Value n) {
 		List<Integer> lista2 = ((ValueSeq) n).getListaEnteros();
 
@@ -103,9 +109,14 @@ public class ValueSeq extends Value {
 		}
 		this.reajustarLista();
 	}
-
-	/* Método que modifica el valor numérico llamante, restándolo del valor numérico parámetro */
-	/* Sabemos que el mayor es el valor numérico parámetro */
+	
+	/**
+	 * <h2><i> subFromValue</i></h2> 
+	 * <p><code>subFromValue(Value n) </code></p>
+	 * <p> Método que modifica el valor numérico llamante, restándolo del valor numérico parámetro. 
+	 * Sabemos que el mayor es el valor numérico parámetro</p>
+	 * @param n - valor número al que se le restará el valor del llamante
+	 */
 	public void subFromValue(Value n) {
 		List<Integer> lista2 = ((ValueSeq) n).getListaEnteros();
 		System.out.println("----Usando subFromValue -------");
@@ -134,15 +145,65 @@ public class ValueSeq extends Value {
 
 	}
 
-	/* Método que modifica el valor numérico llamante, multiplicándolo por el valor numérico parámetro */
-	public void multValue(Value n) {
-	}
-
-	/* Método que indica si el valor numérico llamante es mayor que el valor numérico parámetro */
 	/**
-	 * Primero: compara las longitudes de los enteros, el de mayor longitud ser� necesariamente el n�mero m�s grande
-	 * Segundo: si son de longitudes iguales, se comparan cada fragmento de ambos n�meros almacenados en listas,
-	 * 			empezando por los d�gitos de m�s a la izquierda del n�mero (los que se sit�an al final de la cola de la lista)
+	 * <h2><i> multValue</i></h2> 
+	 * <p><code>public void multValue(Value n) </code></p>
+	 * <p> Método que modifica el valor numérico llamante,
+	 * multiplicándolo por el valor numérico parámetro</p>
+	 * @param n - valor número por el que se multiplicará el llamante
+	 */
+	public void multValue(Value n) {
+		List<Integer> resultado = new List<>(); // lista donde se almacenara el resultado
+		List<Integer> lista2 = ((ValueSeq) n).getListaEnteros();
+		List<Integer> listaMayor;
+		List<Integer> listaMenor;
+		
+		int mult;    // fragmento del número del operando mayor
+		int rMult;   // resultado de multiplicar 'mult' por un digito
+		int rAcarreo=0;// el acarreo del la multiplicacion por un digito
+		valor.acarreo=0;
+		int longitud1 = this.listaEnteros.size();
+		int longitud2 = lista2.size();
+		int longitudMayor;
+		int longitudMenor;
+
+		if(longitud1>=longitud2) {
+			listaMayor = this.listaEnteros;
+			listaMenor = lista2;
+		}
+		else {
+			listaMayor = lista2;
+			listaMenor = this.listaEnteros;
+		}
+		
+		longitudMayor = listaMayor.size();
+		longitudMenor = listaMenor.size();
+		
+		for(int posMenor=1; posMenor<=longitudMenor;posMenor++) {
+			char[] arrayDigitos = Character.toChars(listaMenor.get(posMenor));
+			
+			for(int posChar=0; posChar<arrayDigitos.length; posChar++) {
+				int digito = Character.getNumericValue(arrayDigitos[posChar]);
+				
+				for(int posMayor=1; posMayor<=longitudMayor;posMayor++) {
+					mult 	= listaMayor.get(posMayor)*digito+valor.acarreo;
+					/*rMult 	= mult%10^(posMayor-1);//Math.pow(10, posMayor-1);
+					rAcarreo= mult/10^(posMayor-1);*/
+					valor.acarreoMult(mult);
+					resultado.set(posMayor, valor.entero); 
+				}
+			}
+		}
+	}
+	
+	/**
+	 * <h2><i> greater</i></h2> 
+	 * <p><code>public boolean greater(Value n) </code></p>
+	 * <p> Método que indica si el valor numérico llamante es mayor que el valor numérico parámetro</p>
+	 * <p>Primero: compara las longitudes de los enteros, el de mayor longitud será necesariamente el número más grande</p>
+	 * <p>Segundo: si son de longitudes iguales, se comparan cada fragmento de ambos números almacenados en listas,
+	 * empezando por los dígitos de más a la izquierda del número (los que se sitúan al final de la cola de la lista)</p>
+	 * @param n - valor número con el que se comapra el llamante
 	 */
 	public boolean greater(Value n) {
 		List<Integer> lista2 = ((ValueSeq) n).getListaEnteros();
@@ -223,6 +284,13 @@ public class ValueSeq extends Value {
 				acarreo=1;
 			}
 			entero=e;
+		}
+		public void acarreoMult(Integer e) {
+			acarreo=0;
+			if(e>cotaEntero) {
+				e=e%cotaEntero;
+				acarreo=e/cotaEntero;
+			}
 		}
 	}
 

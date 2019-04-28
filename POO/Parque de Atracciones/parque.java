@@ -1,4 +1,3 @@
-
 import java.util.Map;
 import java.util.HashMap;
 /**
@@ -14,5 +13,10 @@ public class parque
     
     
     public static void main(){
+        // Familia modelo
+        Turista t1 = new Adulto("Pedro","Garcia", "Blanco","01/01/1979");
+        Turista t2 = new Adulto("Maria","Sanchez","Lopez","02/02/1978");
+        Turista t3 = new Nino("Juan", "Garcia","Sanchez","03/03/2008");
+        Turista t4 = new Nino("Ana", "Garcia","Sanchez","04/04/2009" );
     }
 }
