@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=ETarde
+comment0.text=\n\ Write\ a\ description\ of\ class\ ETarde\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=p\ fecha
+comment1.target=ETarde(principal.Persona,\ java.time.LocalDateTime)
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ ETarde\n
+comment2.params=
+comment2.target=void\ aplicarVIP()
+numComments=3
