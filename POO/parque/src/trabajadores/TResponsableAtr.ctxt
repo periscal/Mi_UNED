@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=TResponsableAtr
 comment0.text=\n\ Write\ a\ description\ of\ class\ TResponsableAtr\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=nombre\ apellido1\ apellido2
-comment1.target=TResponsableAtr(java.lang.String,\ java.lang.String,\ java.lang.String)
+comment1.params=nombre\ apellidos
+comment1.target=TResponsableAtr(java.lang.String,\ java.lang.String)
 comment1.text=\n\ Constructor\ for\ objects\ of\ class\ TResponsableAtr\n
 numComments=2

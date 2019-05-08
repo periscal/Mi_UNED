@@ -1,5 +1,6 @@
 package entradas;
-import principal.Persona;
+
+import turistas.Turista;
 import java.time.LocalDateTime;
 /**
  * Write a description of class ETarde here.
@@ -15,8 +16,8 @@ public class ETarde extends Entrada
     /**
      * Constructor for objects of class ETarde
      */
-    public ETarde(Persona p, LocalDateTime fecha){
-        super(p,fecha);
+    public ETarde(Turista p, LocalDateTime fecha,boolean vip){
+        super(p,fecha,vip);
     }
     public void aplicarVIP(){
     }

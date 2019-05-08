@@ -1,4 +1,24 @@
 #BlueJ class context
 comment0.target=GUI
 comment0.text=\n\ Write\ a\ description\ of\ class\ GUI\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-numComments=1
+comment1.params=
+comment1.target=GUI()
+comment10.params=arg0
+comment10.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment2.params=arg0
+comment2.target=void\ itemStateChanged(java.awt.event.ItemEvent)
+comment3.params=arg0
+comment3.target=void\ itemStateChanged(java.awt.event.ItemEvent)
+comment4.params=arg0
+comment4.target=void\ itemStateChanged(java.awt.event.ItemEvent)
+comment5.params=arg0
+comment5.target=void\ itemStateChanged(java.awt.event.ItemEvent)
+comment6.params=arg0
+comment6.target=void\ itemStateChanged(java.awt.event.ItemEvent)
+comment7.params=arg0
+comment7.target=void\ itemStateChanged(java.awt.event.ItemEvent)
+comment8.params=arg0
+comment8.target=void\ itemStateChanged(java.awt.event.ItemEvent)
+comment9.params=arg0
+comment9.target=void\ itemStateChanged(java.awt.event.ItemEvent)
+numComments=11

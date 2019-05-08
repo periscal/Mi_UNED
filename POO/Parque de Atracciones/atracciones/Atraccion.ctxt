@@ -1,7 +1,19 @@
 #BlueJ class context
 comment0.target=Atraccion
 comment0.text=\n\ Abstract\ class\ Atraccion\ -\ write\ a\ description\ of\ the\ class\ here\n\ \n\ @author\:\ \n\ Date\:\ \n
-comment1.params=y
-comment1.target=int\ sampleMethod(int)
-comment1.text=\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\n\ \n\ @param\ \ y\ \ \ \ a\ sample\ parameter\ for\ a\ method\n\ @return\ \ \ \ \ \ \ \ the\ sum\ of\ x\ and\ y\ \n
-numComments=2
+comment1.params=adultos\ ninos\ permiteVIP\ numAyudantes
+comment1.target=Atraccion(boolean,\ boolean,\ boolean,\ int)
+comment1.text=\n
+comment2.params=res
+comment2.target=void\ setResponsable(trabajadores.TResponsableAtr)
+comment2.text=\n\ <h1><i>setResponsable</i></h1>\n\ <p><code>public\ void\ setResponsable(TResponsableAtr\ res)</code></p>\n\ <p>\ Especifica\ quien\ sera\ el\ responsable\ de\ la\ atraccion</p>\n\ @param\ res\ -\ trabajador\ responsable\ de\ la\ atraccion\n
+comment3.params=ayudante
+comment3.target=boolean\ setAyudanteAtr(trabajadores.TAyudanteAtr)
+comment3.text=\n\ <h1><i>setAyudanteAtr</i></h1>\n\ <p><code>public\ abstract\ void\ setAyudanteAtr()</code></p>\n\ <p>A\u00F1ade\ un\ ayudante\ de\ atraccion\ a\ la\ lista\ de\ ayudantes\ sin\ superar\ el\ maximo</p>\n\ @param\ ayudante\ -\ trabajador\ ayudante\n\ @return\ verdadero\ si\ ha\ sido\ posible\ a\u00F1adir\ un\ nuevo\ ayudante,\ falso\ en\ caso\ contrario\n
+comment4.params=
+comment4.target=trabajadores.TResponsableAtr\ getResponsable()
+comment4.text=\n\ <h1><i>getResponsable</i></h1>\n\ <p><code>public\ TResponsableAtr\ getResponsable()</code></p>\n\ <p>Devuleve\ el\ responsable\ de\ la\ atraccion</p>\n\ @return\ el\ trabajador\ tipo\ TResponsableAtr\ de\ la\ atraccion\n
+comment5.params=
+comment5.target=java.util.List\ getAyudantes()
+comment5.text=\n\ <h1><i>getAyudantes</i></h1>\n\ <p><code>public\ List<TAyudanteAtr>\ getAyudantes()</code></p>\n\ <p></p>\n\ @return\ la\ lista\ de\ los\ ayudantes\ del\ responsable\ de\ la\ atracion\n
+numComments=6

@@ -1,5 +1,6 @@
 package entradas;
-import principal.Persona;
+
+import turistas.Turista;
 import java.time.LocalDateTime;
 /**
  * Write a description of class EOtra here.
@@ -15,8 +16,8 @@ public class EOtra extends Entrada
     /**
      * Constructor for objects of class EOtra
      */
-    public EOtra(Persona p, LocalDateTime fecha){
-        super(p,fecha);
+    public EOtra(Turista p, LocalDateTime fecha,boolean vip){
+        super(p,fecha,vip);
     }
     public void aplicarVIP(){
     }

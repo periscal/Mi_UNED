@@ -1,5 +1,6 @@
 package entradas;
-import principal.Persona;
+
+import turistas.Turista;
 import java.time.LocalDateTime;
 /**
  * Write a description of class EFamiliar here.
@@ -15,8 +16,8 @@ public class EFamiliar extends Entrada
     /**
      * Constructor for objects of class EFamiliar
      */
-    public EFamiliar(Persona p, LocalDateTime fecha){
-        super(p,fecha);
+    public EFamiliar(Turista p, LocalDateTime fecha,boolean vip){
+        super(p,fecha,vip);
     }
     public void aplicarVIP(){
     }

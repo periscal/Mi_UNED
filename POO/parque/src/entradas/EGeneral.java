@@ -1,5 +1,6 @@
 package entradas;
-import principal.Persona;
+
+import turistas.Turista;
 import java.time.LocalDateTime;
 /**
  * Write a description of class EGeneral here.
@@ -15,8 +16,8 @@ public class EGeneral extends Entrada
     /**
      * Constructor for objects of class EGeneral
      */
-    public EGeneral(Persona p, LocalDateTime fecha){
-        super(p,fecha);
+    public EGeneral(Turista p, LocalDateTime fecha,boolean vip){
+        super(p,fecha,vip);
     }
     public void aplicarVIP(){
     }

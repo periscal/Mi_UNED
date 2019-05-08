@@ -1,6 +1,9 @@
 package entradas;
-import principal.Persona;
+
+import turistas.Turista;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 /**
  * Abstract class Entrada - write a description of the class here
  * 
@@ -10,21 +13,24 @@ import java.time.LocalDateTime;
 public abstract class Entrada
 {
     // Valores estaticos, iguales para todos las instancias de tipo "Entrada"
+    public static List<Entrada> entradas = new ArrayList<>();
     public static float precioBase = 60;
     public static float costeVIP = 50;
     public static float porcenMinimo = 10;
     public static float precioMinimo = precioBase*porcenMinimo/100;
     
     //Valores para cada Entrada
-    protected LocalDateTime fecha;
+    protected LocalDateTime fechaEntrada;
     protected float precioEntrada;
     protected boolean sumplementoVIP;
 
-    public Entrada(Persona p, LocalDateTime fecha){
-        this.fecha=fecha;
+    public Entrada(Turista p, LocalDateTime fecha, boolean vip){
+        this.fechaEntrada=fecha;
         this.precioEntrada = precioBase;
+        if(vip) this.precioEntrada += p.getDescuentoTipoTurista()*costeVIP/100;
+        entradas.add(this);
     }
-    
+
     /**
      * <h2><i> descontar </i></h2>
      * <p><code> public void descontar(float porcenDesc)</code></p>
@@ -36,14 +42,15 @@ public abstract class Entrada
         aux = precioEntrada*(1-porcenDesc);
         precioEntrada=(aux >= precioMinimo)? aux: precioMinimo; 
     }
-    
+
     /**
      * <h2><i> aplicarVIP </i></h2>
      * <p><code> public void aplicarVIP()</code></p>
      * <p>Suma el coste asociado al suplemento VIP al precio de la entrada</p>
      */
     public abstract void aplicarVIP();
-    
+    public float precioEntrada() {return precioEntrada;}
+    public LocalDateTime fechaEntrada() {return fechaEntrada;}
     /**
      * <h2><i> esVIP </i></h2>
      * <p><code> public boolean esVIP()</code></p>

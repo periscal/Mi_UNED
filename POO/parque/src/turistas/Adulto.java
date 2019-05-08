@@ -1,4 +1,6 @@
 package turistas;
+
+import java.time.LocalDate;
 /**
  * Write a description of class Adulto here.
  * 
@@ -10,8 +12,8 @@ public class Adulto extends Turista
     /**
      * Constructor for objects of class Adulto
      */
-    public Adulto(String nombre, String apellido1, String apellido2, String nacimiento){
-        super(nombre,apellido1,apellido2,nacimiento);
+    public Adulto(String nombre, String apellidos, LocalDate nacimiento){
+        super(nombre,apellidos,nacimiento);
         descTipoTurista=0;
     }
 }

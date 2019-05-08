@@ -1,4 +1,5 @@
 package turistas;
+
 import principal.Persona;
 import java.util.List;
 import java.util.ArrayList;
@@ -14,24 +15,27 @@ public abstract class Turista extends Persona
 {
     // Valores estaticos, iguales para todos las instancias de tipo "Turista"
     public static List<Turista> turistas = new ArrayList<>();
-    public static long contadorIdTurista=0;
+    public static int contadorIdTurista=0;
     
     //Atributos para cada Turista
     protected LocalDate nacimiento;
-    protected long  idTurista; 
+    protected int  idTurista; 
     protected float descTipoTurista;
     /**
      */
     public Turista(){
         this.idTurista = contadorIdTurista++;
+        turistas.add(this);
     }
-    public Turista(String nombre, String apellido1, String apellido2, String nacimiento){
-        super(nombre, apellido1, apellido2);
+    public Turista(String nombre, String apellidos, LocalDate nacimiento){
+        super(nombre, apellidos);
         
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        this.nacimiento = LocalDate.parse(nacimiento, formatter);
+        this.nacimiento = nacimiento;//LocalDate.parse(nacimiento, formatter);
         
         this.idTurista = contadorIdTurista++;
+        turistas.add(this);
     }
-   
+    
+    public float getDescuentoTipoTurista() {return descTipoTurista;}
 }

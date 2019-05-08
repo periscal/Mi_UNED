@@ -7,10 +7,11 @@ package trabajadores;
  */
 public class TAyudanteAtr extends Trabajador
 {
+    public static final float sueldoBase = 950;
     /**
      * Constructor for objects of class TAyudanteAtr
      */
-    public TAyudanteAtr(String nombre, String apellido1, String apellido2){
-        super(nombre,apellido1,apellido2);
+    public TAyudanteAtr(String nombre, String apellidos){
+        super(nombre,apellidos,sueldoBase);
     }
 }

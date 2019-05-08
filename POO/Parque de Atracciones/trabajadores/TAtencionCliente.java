@@ -7,13 +7,10 @@ package trabajadores;
  */
 public class TAtencionCliente extends Trabajador
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
     /**
      * Constructor for objects of class TAtencionCliente
      */
-    public TAtencionCliente(String nombre, String apellido1, String apellido2){
-        super(nombre,apellido1,apellido2);
+    public TAtencionCliente(String nombre, String apellidos){
+        super(nombre,apellidos,TAyudanteAtr.sueldoBase*110/100);
     }
 }

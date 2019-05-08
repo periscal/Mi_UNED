@@ -11,21 +11,20 @@ import java.util.ArrayList;
 public abstract class Trabajador extends Persona
 {
     // instance variables - replace the example below with your own
-    public static List<Trabajador> turistas = new ArrayList<>();
-    public static long contadorIdTrabajador=0;
-    protected long  idTrabajador;
-
+    public static List<Trabajador> trabajadores = new ArrayList<>();
+    public static int contadorIdTrabajador=0;
+    protected int  idTrabajador;
+    protected float sueldo;
     /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y    a sample parameter for a method
-     * @return        the sum of x and y 
      */
     public Trabajador(){
         this.idTrabajador = contadorIdTrabajador++;
+        trabajadores.add(this);
     }
-    public Trabajador(String nombre, String apellido1, String apellido2){
-        super(nombre,apellido1,apellido2);
+    public Trabajador(String nombre, String apellidos, float sueldo){
+        super(nombre,apellidos);
         this.idTrabajador = contadorIdTrabajador++;
+        this.sueldo = sueldo;
+        trabajadores.add(this);
     }
 }
