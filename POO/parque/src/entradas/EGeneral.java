@@ -5,20 +5,15 @@ import java.time.LocalDateTime;
 /**
  * Write a description of class EGeneral here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Periscal Porteiro, Juan
+ * @version 17/05/2019
  */
 public class EGeneral extends Entrada
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
     /**
      * Constructor for objects of class EGeneral
      */
     public EGeneral(Turista p, LocalDateTime fecha,boolean vip){
         super(p,fecha,vip);
-    }
-    public void aplicarVIP(){
     }
 }

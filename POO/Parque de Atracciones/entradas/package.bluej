@@ -1,4 +1,16 @@
 #BlueJ package file
+dependency1.from=Entrada
+dependency1.to=EFamiliar
+dependency1.type=UsesDependency
+dependency2.from=Entrada
+dependency2.to=ETarde
+dependency2.type=UsesDependency
+dependency3.from=Entrada
+dependency3.to=EDiaLaborable
+dependency3.type=UsesDependency
+dependency4.from=Entrada
+dependency4.to=EGeneral
+dependency4.type=UsesDependency
 objectbench.height=94
 objectbench.width=776
 package.divider.horizontal=0.6
@@ -9,7 +21,7 @@ package.editor.x=292
 package.editor.y=130
 package.frame.height=600
 package.frame.width=800
-package.numDependencies=0
+package.numDependencies=4
 package.numTargets=6
 package.showExtends=true
 package.showUses=true

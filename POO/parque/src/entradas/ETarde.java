@@ -10,15 +10,10 @@ import java.time.LocalDateTime;
  */
 public class ETarde extends Entrada
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
     /**
      * Constructor for objects of class ETarde
      */
     public ETarde(Turista p, LocalDateTime fecha,boolean vip){
         super(p,fecha,vip);
-    }
-    public void aplicarVIP(){
     }
 }

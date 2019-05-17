@@ -1,4 +1,13 @@
 #BlueJ package file
+dependency1.from=Turista
+dependency1.to=Nino
+dependency1.type=UsesDependency
+dependency2.from=Turista
+dependency2.to=Adulto
+dependency2.type=UsesDependency
+dependency3.from=Turista
+dependency3.to=Senior
+dependency3.type=UsesDependency
 objectbench.height=66
 objectbench.width=718
 package.divider.horizontal=0.6
@@ -9,7 +18,7 @@ package.editor.x=0
 package.editor.y=371
 package.frame.height=497
 package.frame.width=742
-package.numDependencies=0
+package.numDependencies=3
 package.numTargets=4
 package.showExtends=true
 package.showUses=true

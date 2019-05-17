@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Atraccion
-comment0.text=\n\ Abstract\ class\ Atraccion\ -\ write\ a\ description\ of\ the\ class\ here\n\ \n\ @author\:\ \n\ Date\:\ \n
+comment0.text=\n\ Abstract\ class\ Atraccion\ -\ write\ a\ description\ of\ the\ class\ here\n\n\ @author\ Periscal\ Porteiro,\ Juan\n\ @version\ 17/05/2019\n
 comment1.params=adultos\ ninos\ permiteVIP\ numAyudantes
 comment1.target=Atraccion(boolean,\ boolean,\ boolean,\ int)
 comment1.text=\n
@@ -16,4 +16,13 @@ comment4.text=\n\ <h1><i>getResponsable</i></h1>\n\ <p><code>public\ TResponsabl
 comment5.params=
 comment5.target=java.util.List\ getAyudantes()
 comment5.text=\n\ <h1><i>getAyudantes</i></h1>\n\ <p><code>public\ List<TAyudanteAtr>\ getAyudantes()</code></p>\n\ <p></p>\n\ @return\ la\ lista\ de\ los\ ayudantes\ del\ responsable\ de\ la\ atracion\n
-numComments=6
+comment6.params=
+comment6.target=int\ getId()
+comment7.params=visita
+comment7.target=void\ nuevaVisita(java.time.LocalDateTime)
+comment7.text=\n\ <h1><i>nuevaVisita</i></h1>\n\ <p><code>public\ void\ nuevaVisita(LocalDateTime\ visita)</code></p>\n\ <p>A\u00F1ade\ a\ la\ lista\ de\ visitas\ de\ la\ atracci\u00F3n\ el\ instante\n\ que\ se\ produce\ la\ misma</p>\n\ @param\ visita\ -\ momento\ (fecha\ y\ hora)\ en\ el\ que\ se\ produce\ la\ visita\n
+comment8.params=
+comment8.target=java.util.List\ getVisitas()
+comment9.params=
+comment9.target=int\ getNumAyudantes()
+numComments=10

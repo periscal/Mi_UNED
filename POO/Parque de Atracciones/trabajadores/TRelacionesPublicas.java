@@ -11,6 +11,6 @@ public class TRelacionesPublicas extends Trabajador
      * Constructor for objects of class TRelacionesPublicas
      */
     public TRelacionesPublicas(String nombre, String apellidos){
-        super(nombre,apellidos,TAyudanteAtr.sueldoBase*120/100);
+        super(nombre,apellidos,TAyudanteAtr.SUELDOBASE*120/100);
     }
 }

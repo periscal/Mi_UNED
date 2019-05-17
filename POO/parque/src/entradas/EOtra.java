@@ -10,15 +10,10 @@ import java.time.LocalDateTime;
  */
 public class EOtra extends Entrada
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
     /**
      * Constructor for objects of class EOtra
      */
     public EOtra(Turista p, LocalDateTime fecha,boolean vip){
         super(p,fecha,vip);
-    }
-    public void aplicarVIP(){
     }
 }

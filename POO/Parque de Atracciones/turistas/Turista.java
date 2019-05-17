@@ -1,20 +1,19 @@
 package turistas;
 
 import principal.Persona;
-import java.util.List;
-import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 /**
  * Abstract class Turista - write a description of the class here
  * 
- * @author: 
- * Date: 
+ * @author Periscal Porteiro, Juan
+ * @version 17/05/2019
  */
 public abstract class Turista extends Persona
 {
     // Valores estaticos, iguales para todos las instancias de tipo "Turista"
-    public static List<Turista> turistas = new ArrayList<>();
+    public static Map<Integer, Turista> turistas = new HashMap<>();
     public static int contadorIdTurista=0;
     
     //Atributos para cada Turista
@@ -25,17 +24,25 @@ public abstract class Turista extends Persona
      */
     public Turista(){
         this.idTurista = contadorIdTurista++;
-        turistas.add(this);
+        turistas.put(idTurista,this);
     }
     public Turista(String nombre, String apellidos, LocalDate nacimiento){
         super(nombre, apellidos);
-        
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        this.nacimiento = nacimiento;//LocalDate.parse(nacimiento, formatter);
-        
+        this.nacimiento = nacimiento;
         this.idTurista = contadorIdTurista++;
-        turistas.add(this);
+        turistas.put(idTurista,this);
     }
     
     public float getDescuentoTipoTurista() {return descTipoTurista;}
+    
+    public static Turista altaTurista (String nombre, String apellidos, LocalDate nacimiento, LocalDate ahora) {
+    	Turista t =null;
+    	int edad = nacimiento.until(ahora).getYears();
+    	
+    	if(edad<=12) t = new Nino(nombre,apellidos,nacimiento);
+    	else if(edad > 12 && edad<65) t = new Adulto(nombre,apellidos,nacimiento);
+    	else if (edad >=65) t = new Senior(nombre,apellidos,nacimiento);
+    	
+		return t;
+    }
 }

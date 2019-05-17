@@ -1,8 +1,8 @@
 #BlueJ package file
-dependency1.from=TRelacionesPublicas
-dependency1.to=TAyudanteAtr
+dependency1.from=TResponsableAtr
+dependency1.to=Trabajador
 dependency1.type=UsesDependency
-dependency2.from=TResponsableAtr
+dependency2.from=TRelacionesPublicas
 dependency2.to=TAyudanteAtr
 dependency2.type=UsesDependency
 dependency3.from=TAtencionCliente

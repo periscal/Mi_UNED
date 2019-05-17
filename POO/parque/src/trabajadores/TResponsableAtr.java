@@ -1,9 +1,9 @@
 package trabajadores;
 /**
  * Write a description of class TResponsableAtr here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ *
+ * @author Periscal Porteiro, Juan
+ * @version 17/05/2019
  */
 public class TResponsableAtr extends Trabajador
 {
@@ -11,6 +11,6 @@ public class TResponsableAtr extends Trabajador
      * Constructor for objects of class TResponsableAtr
      */
     public TResponsableAtr(String nombre, String apellidos){
-        super(nombre,apellidos,TAyudanteAtr.sueldoBase*115/100);
+        super(nombre,apellidos,Trabajador.SUELDOBASE*115/100);
     }
 }

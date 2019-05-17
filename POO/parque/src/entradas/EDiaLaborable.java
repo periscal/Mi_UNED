@@ -5,8 +5,8 @@ import java.time.LocalDateTime;
 /**
  * Write a description of class EDiaLaborable here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Periscal Porteiro, Juan
+ * @version 17/05/2019
  */
 public class EDiaLaborable extends Entrada
 {
@@ -15,8 +15,5 @@ public class EDiaLaborable extends Entrada
      */
     public EDiaLaborable(Turista p, LocalDateTime fecha,boolean vip){
         super(p,fecha,vip);
-    }
-    
-    public void aplicarVIP(){
     }
 }

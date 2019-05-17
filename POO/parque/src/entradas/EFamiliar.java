@@ -5,8 +5,8 @@ import java.time.LocalDateTime;
 /**
  * Write a description of class EFamiliar here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Periscal Porteiro, Juan
+ * @version 17/05/2019
  */
 public class EFamiliar extends Entrada
 {
@@ -18,7 +18,5 @@ public class EFamiliar extends Entrada
      */
     public EFamiliar(Turista p, LocalDateTime fecha,boolean vip){
         super(p,fecha,vip);
-    }
-    public void aplicarVIP(){
     }
 }

@@ -4,8 +4,8 @@ import java.time.LocalDate;
 /**
  * Write a description of class Nino here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Periscal Porteiro, Juan
+ * @version 17/05/2019
  */
 public class Nino extends Turista{
     /**
