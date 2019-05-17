@@ -7,8 +7,12 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 /**
- * Abstract class Entrada - write a description of the class here
- * 
+ * <p>La clase <code>Entrada</code> representa una entrada emitida en el parque de atracciones
+ * para cada nuevo turista</p>
+ * <p>Las diferentes características que definen una entrada son: la fecha y hora a la que es emitida,
+ * el tipo de turista que la recibe, si incluye bonificación VIP y, por supuesto, su precio</p>
+ * <p> Para dar cuenta de todas las entradas, se dispone como atributos de clase una lista que
+ *  almacena todas las entradas emitidas, además de un contador del total de las mismas</p>
  * @author Periscal Porteiro, Juan
  * @version 17/05/2019
  */
@@ -29,21 +33,35 @@ public abstract class Entrada
 		private Descuentos(float desc) { porcentajeDesc=desc;}
 		public float getDescuento() {return porcentajeDesc;}
 	}
-
 	//Valores para cada Entrada
 	protected LocalDateTime fechaEntrada;
 	protected float precioEntrada;
 	protected boolean sumplementoVIP;
 	protected String ticket="";
 
-	public Entrada(Turista p, LocalDateTime ahora, boolean vip){
+	/**
+	 * <h1><i>Entrada</i></h1>
+	 * <p><code>public Entrada(Turista p, LocalDateTime ahora, boolean vip)</code></p>
+	 * <p> Construye un objeto Entrada </p>
+	 * @param turista - objeto <code>Turista</code> propietario de la entrada
+	 * @param ahora - momento en el que se emite la entrada
+	 * @param vip - booleano que indica si el turista escoge la bonificación VIP
+	 */
+	public Entrada(Turista turista, LocalDateTime ahora, boolean vip){
 		this.fechaEntrada=ahora;
 		this.precioEntrada = PRECIO_BASE;
 		if(vip) this.precioEntrada += COSTE_VIP;
-		this.precioEntrada*=(1-p.getDescuentoTipoTurista()/100);
+		this.precioEntrada*=(1-turista.getDescuentoTipoTurista()/100);
 		entradas.add(this);
 	}
 
+	/**
+	 * <h1><i> ticket </i></h1>
+	 * <p><code> public String ticket()</code></p>
+	 * <p> Imprime el ticket de la entrada adquirida en la que
+	 * se indicará su hora, precio, tipo de entrada y tipo de turista</p>
+	 * @param porcenDesc - porcentaje de decrementar a aplicar al precio
+	 */
 	public String ticket() {
 		System.out.println(ticket+precioEntrada);
 		return ticket+precioEntrada;

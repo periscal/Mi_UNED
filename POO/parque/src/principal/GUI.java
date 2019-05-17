@@ -13,9 +13,9 @@ import atracciones.Atraccion;
 import entradas.Entrada;
 import turistas.Turista;
 /**
- * Write a description of class GUI here.
- * 
-
+ * <p>Interfaz gráfica para la gestión de la aplicación del parque de atracciones</p>
+ * <p>Esta cuenta con 5 pestañas principales. Permitiendo genstionar el alta de 
+ * nuevos turistas, trabajadores y atracciones; además del análisis estadístico y control de gastos </p>
  * @author Periscal Porteiro, Juan
  * @version 17/05/2019
  */
@@ -25,6 +25,11 @@ public class GUI extends JFrame{
 	
 	int atraccionSeleccionada=0;
 
+	/**
+	 * <h1><i>GUI</i></h1>
+	 * <p><code>public GUI()</code></p>
+	 * <p> Construye un objeto GUI </p>
+	 */
 	public GUI() {
 		/* Almacenamos en la variable objeto "mipantalla" el sistema nativo de ventanas*/
 		Toolkit miPantalla = Toolkit.getDefaultToolkit();

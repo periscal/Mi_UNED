@@ -12,7 +12,7 @@ import trabajadores.*;
 import turistas.*;
 
 /**
- * Write a description of class parque here.
+ * <p>Clase principal de un parque de atracciones</p>
  * 
  * @author Periscal Porteiro, Juan
  * @version 17/05/2019

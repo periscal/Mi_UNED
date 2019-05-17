@@ -13,7 +13,7 @@ import trabajadores.Trabajador;
 
 /**
  * La clase AtraccionesFuncionando  indicara, para un año natural, que atracciones de las que estan disponibles
- * estan activoas (el usuario puede usarlas) o no. Las atracciones que esten inactivas implica que no requeriran
+ * estan activas (el usuario puede usarlas) o no. Las atracciones que esten inactivas implica que no requeriran
  * de los servicios de los trabajadores correspondientes, lo que hace fluctuar los costes laborales.
  * 
  * @author Periscal Porteiro, Juan
