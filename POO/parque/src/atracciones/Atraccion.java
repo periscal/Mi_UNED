@@ -10,11 +10,11 @@ import trabajadores.*;
  * <p>Clase que representa una atracción del parque de atracciones. </p>
  * <p>En una atracción se deben definir diversas características como si acepta adultos y/o niños.
  * Cuál debe ser la altura máxima y/o mímina permitida para el acceso a la misma.
- * y, finalmente, si está activa o no.Y, i permite el uso de las ventajas de la bonificación VIP.</p>
+ * y, finalmente, si está activa o no.Y, si permite el uso de las ventajas de la bonificación VIP.</p>
  *  <p> También, respecto al personal del parque, un objeto Atraccion contiene 
- *  una lista de los ayudantes de atracción, así como también el trabajor responsabel correspondiente</p>
- *  <p> Para dar cuenta de todas las atracciones, se dispone como atributos de clase
- *  una HashMap que almacena todas las atracciones existentes, además de un contador del total de las mismas.</p>
+ *  una lista de los ayudantes de atracción, así como también el trabajor responsable correspondiente</p>
+ *  <p> Para dar cuenta de todas las atracciones, se dispone como atributos de clase un HashMap que almacena 
+ *  todas las atracciones existentes, además de un contador del total de las mismas.</p>
  * @author Periscal Porteiro, Juan
  * @version 17/05/2019
  */
