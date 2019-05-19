@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Parque
+comment0.text=\n\ <p>Clase\ principal\ de\ un\ parque\ de\ atracciones</p>\n\ \n\ @author\ Periscal\ Porteiro,\ Juan\n\ @version\ 17/05/2019\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=
+comment2.target=void\ generarAtracciones()
+comment3.params=
+comment3.target=void\ generarTrabajadores()
+comment4.params=
+comment4.target=void\ generarTuristas()
+numComments=5

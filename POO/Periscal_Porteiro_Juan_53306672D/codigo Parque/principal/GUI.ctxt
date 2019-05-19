@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=GUI
+comment0.text=\n\ <p>Interfaz\ gr\u00E1fica\ para\ la\ gesti\u00F3n\ de\ la\ aplicaci\u00F3n\ del\ parque\ de\ atracciones</p>\n\ <p>Esta\ cuenta\ con\ 5\ pesta\u00F1as\ principales.\ Permitiendo\ genstionar\ el\ alta\ de\ \n\ nuevos\ turistas,\ trabajadores\ y\ atracciones;\ adem\u00E1s\ del\ an\u00E1lisis\ estad\u00EDstico\ y\ control\ de\ gastos\ </p>\n\ @author\ Periscal\ Porteiro,\ Juan\n\ @version\ 17/05/2019\n
+comment1.params=
+comment1.target=GUI()
+comment1.text=\n\ <h1><i>GUI</i></h1>\n\ <p><code>public\ GUI()</code></p>\n\ <p>\ Construye\ un\ objeto\ GUI\ </p>\n
+comment2.params=arg0
+comment2.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment3.params=arg0
+comment3.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment4.params=arg0
+comment4.target=void\ actionPerformed(java.awt.event.ActionEvent)
+numComments=5

@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Turista
+comment0.text=\n\ <p>\ Clase\ que\ representa\ a\ un\ tipo\ de\ turista\ (cliente)\ en\ el\ parque\ de\ atracciones</p>\n\ <p>\ Las\ caracter\u00EDsticas\ que\ se\ tienen\ en\ cuenta\ para\ definir\ todo\ turista\n\ \ son\ su\ nombre\ y\ apellidos,\ y\ su\ fecha\ de\ nacimiento</p>\n\ <p>\ Para\ dar\ cuenta\ de\ todas\ los\ turistas,\ se\ dispone\ como\ atributos\ de\ clase\ un\ HashMap\ que\n\ \ almacena\ todos\ los\ turistas\ que\ han\ visitado\ el\ parque,\ adem\u00E1s\ de\ un\ contador\ del\ total\ de\ los\ mismos</p>\n\ @author\ Periscal\ Porteiro,\ Juan\n\ @version\ 17/05/2019\n
+comment1.params=nombre\ apellidos\ nacimiento
+comment1.target=Turista(java.lang.String,\ java.lang.String,\ java.time.LocalDate)
+comment1.text=\n\ <h1><i>Turista</i></h1>\n\ <p><code>public\ Turista(String\ nombre,\ String\ apellidos,\ LocalDate\ nacimiento)</code></p>\n\ <p>\ Construye\ un\ objeto\ Turista\ </p>\n\ @param\ nombre\ -\ nombre\ del\ turista\n\ @param\ apellidos\ -\ apellidos\ turista\n\ @param\ nacimiento\ -\ fecha\ nacimiento\ turista\n
+comment2.params=
+comment2.target=float\ getDescuentoTipoTurista()
+comment2.text=\n\ <h1><i>getDescuentoTipoTurista</i></h1>\n\ <p><code>public\ float\ getDescuentoTipoTurista()</code></p>\n\ <p>\ Indica\ el\ tipo\ de\ descuento\ aplicado\ en\ funci\u00F3n\ del\ tipo\ de\ turista</p>\n\ @return\ el\ porecentaje\ de\ descuento\ asociado\ al\ tipo\ de\ turista\n
+comment3.params=nombre\ apellidos\ nacimiento\ ahora
+comment3.target=Turista\ altaTurista(java.lang.String,\ java.lang.String,\ java.time.LocalDate,\ java.time.LocalDate)
+comment3.text=\n\ <h1><i>altaTurista</i></h1>\n\ <p><code>public\ static\ Turista\ altaTurista\ (String\ nombre,\ String\ apellidos,\ LocalDate\ nacimiento,\ LocalDate\ ahora)</code></p>\n\ <p>\ Crea\ y\ devuelve\ un\ objeto\ que\ hereda\ de\ turista,\ correspondiente\ a\ los\ par\u00E1metros\ introducidos.\n\ Este\ puede\ ser\ <code>Nino</code>,\ <code>Adulto</code>\ o\ <code>Senior</code></p>\n\ @param\ nombre\ -\ nombre\ del\ turista\n\ @param\ apellidos\ -\ apellidos\ turista\n\ @param\ nacimiento\ -\ fecha\ nacimiento\ turista\n\ @param\ ahora\ -\ momento\ en\ el\ que\ se\ realiza\ el\ alta\ del\ turista\n\ @return\ un\ objeto\ <code>Turista</code>\n
+numComments=4

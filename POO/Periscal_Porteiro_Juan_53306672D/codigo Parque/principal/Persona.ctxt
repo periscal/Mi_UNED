@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Persona
+comment0.text=\n\ Abstract\ class\ Persona\ -\ write\ a\ description\ of\ the\ class\ here\n\ \n\ @author\ Periscal\ Porteiro,\ Juan\n\ @version\ 17/05/2019\n
+comment1.params=
+comment1.target=Persona()
+comment1.text=\n
+comment2.params=nombre\ apellidos
+comment2.target=Persona(java.lang.String,\ java.lang.String)
+comment3.params=
+comment3.target=java.lang.String\ getNombre()
+comment4.params=
+comment4.target=java.lang.String\ getApellidos()
+numComments=5
