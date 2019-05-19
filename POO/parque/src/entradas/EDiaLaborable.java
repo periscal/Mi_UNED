@@ -3,7 +3,7 @@ package entradas;
 import turistas.Turista;
 import java.time.LocalDateTime;
 /**
- * Write a description of class EDiaLaborable here.
+ * Clase que hereda de <code>Entrada</code>.
  * 
  * @author Periscal Porteiro, Juan
  * @version 17/05/2019

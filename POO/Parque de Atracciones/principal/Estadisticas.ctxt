@@ -1,8 +1,9 @@
 #BlueJ class context
 comment0.target=Estadisticas
-comment0.text=\n\ Write\ a\ description\ of\ class\ Estadisticas\ here.\n\ \n\ @author\ Periscal\ Porteiro,\ Juan\n\ @version\ 17/05/2019\n
+comment0.text=\n\ La\ clase\ <code>Estadisticas</code>\ representa\ la\ informaci\u00F3n\ del\ parque\n\ \ de\ atracciones\ respecto\ a\ los\ turistas,\ atracciones\ y\ precios\ de\ entradas,\ \n\ \ analizando\ valores\ para\ los\ distintos\ dias,\ semanas,\ meses\ y\ a\u00F1os;\n\ \ adem\u00E1s\ de\ sus\ promedios\n\ \n\ @author\ Periscal\ Porteiro,\ Juan\n\ @version\ 17/05/2019\n
 comment1.params=ano
 comment1.target=Estadisticas(int)
+comment1.text=\n\ <h1><i>Estadisticas</i></h1>\n\ <p><code>public\ Estadisticas(int\ ano)</code></p>\n\ <p>\ Construye\ un\ objeto\ Estadisticas\ </p>\n\ @param\ ano\ -\ a\u00F1o\ para\ el\ que\ se\ realizan\ las\ estadisticas\n
 comment10.params=
 comment10.target=float\ visitantesPromAno()
 comment11.params=fecha

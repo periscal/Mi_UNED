@@ -1,10 +1,12 @@
 #BlueJ class context
 comment0.target=Entrada
-comment0.text=\n\ Abstract\ class\ Entrada\ -\ write\ a\ description\ of\ the\ class\ here\n\ \n\ @author\ Periscal\ Porteiro,\ Juan\n\ @version\ 17/05/2019\n
-comment1.params=p\ ahora\ vip
+comment0.text=\n\ <p>La\ clase\ <code>Entrada</code>\ representa\ una\ entrada\ emitida\ en\ el\ parque\ de\ atracciones\n\ para\ cada\ nuevo\ turista</p>\n\ <p>Las\ diferentes\ caracter\u00EDsticas\ que\ definen\ una\ entrada\ son\:\ la\ fecha\ y\ hora\ a\ la\ que\ es\ emitida,\n\ el\ tipo\ de\ turista\ que\ la\ recibe,\ si\ incluye\ bonificaci\u00F3n\ VIP\ y,\ por\ supuesto,\ su\ precio</p>\n\ <p>\ Para\ dar\ cuenta\ de\ todas\ las\ entradas,\ se\ dispone\ como\ atributos\ de\ clase\ una\ lista\ que\n\ \ almacena\ todas\ las\ entradas\ emitidas,\ adem\u00E1s\ de\ un\ contador\ del\ total\ de\ las\ mismas</p>\n\ @author\ Periscal\ Porteiro,\ Juan\n\ @version\ 17/05/2019\n
+comment1.params=turista\ ahora\ vip
 comment1.target=Entrada(turistas.Turista,\ java.time.LocalDateTime,\ boolean)
+comment1.text=\n\ <h1><i>Entrada</i></h1>\n\ <p><code>public\ Entrada(Turista\ p,\ LocalDateTime\ ahora,\ boolean\ vip)</code></p>\n\ <p>\ Construye\ un\ objeto\ Entrada\ </p>\n\ @param\ turista\ -\ objeto\ <code>Turista</code>\ propietario\ de\ la\ entrada\n\ @param\ ahora\ -\ momento\ en\ el\ que\ se\ emite\ la\ entrada\n\ @param\ vip\ -\ booleano\ que\ indica\ si\ el\ turista\ escoge\ la\ bonificaci\u00F3n\ VIP\n
 comment2.params=
 comment2.target=java.lang.String\ ticket()
+comment2.text=\n\ <h1><i>\ ticket\ </i></h1>\n\ <p><code>\ public\ String\ ticket()</code></p>\n\ <p>\ Imprime\ el\ ticket\ de\ la\ entrada\ adquirida\ en\ la\ que\n\ se\ indicar\u00E1\ su\ hora,\ precio,\ tipo\ de\ entrada\ y\ tipo\ de\ turista</p>\n\ @param\ porcenDesc\ -\ porcentaje\ de\ decrementar\ a\ aplicar\ al\ precio\n
 comment3.params=porcenDesc
 comment3.target=void\ decrementar(float)
 comment3.text=\n\ <h1><i>\ decrementar\ </i></h1>\n\ <p><code>\ public\ void\ decrementar(float\ porcenDesc)</code></p>\n\ <p>Aplica\ un\ decrementar\ al\ precio\ de\ la\ entrada</p>\n\ @param\ porcenDesc\ -\ porcentaje\ de\ decrementar\ a\ aplicar\ al\ precio\n

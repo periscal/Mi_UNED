@@ -2,10 +2,9 @@ package turistas;
 
 import java.time.LocalDate;
 /**
- * Write a description of class Adulto here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Clase que hereda de <code>Turista</code>.
+ * @author Periscal Porteiro, Juan
+ * @version 17/05/2019
  */
 public class Adulto extends Turista
 {

@@ -1,9 +1,0 @@
-#BlueJ class context
-comment0.target=Trabajador
-comment0.text=\n\ Abstract\ class\ Trabajador\ -\ write\ a\ description\ of\ the\ class\ here\n\ \n\ @author\:\ \n\ Date\:\ \n
-comment1.params=
-comment1.target=Trabajador()
-comment1.text=\n
-comment2.params=nombre\ apellidos\ sueldo
-comment2.target=Trabajador(java.lang.String,\ java.lang.String,\ float)
-numComments=3

@@ -9,7 +9,10 @@ import atracciones.Atraccion;
 import entradas.Entrada;
 
 /**
- * Write a description of class Estadisticas here.
+ * La clase <code>Estadisticas</code> representa la información del parque
+ *  de atracciones respecto a los turistas, atracciones y precios de entradas, 
+ *  analizando valores para los distintos dias, semanas, meses y años;
+ *  además de sus promedios
  * 
  * @author Periscal Porteiro, Juan
  * @version 17/05/2019
@@ -38,7 +41,12 @@ public class Estadisticas
 	private Map<Integer, Map<Integer,Integer>>  atraccionesSemana;
 	private Map<Integer, Map<Integer,Integer>>  atraccionesMes;
 
-
+	/**
+	 * <h1><i>Estadisticas</i></h1>
+	 * <p><code>public Estadisticas(int ano)</code></p>
+	 * <p> Construye un objeto Estadisticas </p>
+	 * @param ano - año para el que se realizan las estadisticas
+	 */
 	public Estadisticas(int ano) {
 		//Dias del año del cual realizamos las estadisticas
 		diasAno = Year.of(ano).length();

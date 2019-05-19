@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Parque
-comment0.text=\n\ Write\ a\ description\ of\ class\ parque\ here.\n\ \n\ @author\ Periscal\ Porteiro,\ Juan\n\ @version\ 17/05/2019\n
+comment0.text=\n\ <p>Clase\ principal\ de\ un\ parque\ de\ atracciones</p>\n\ \n\ @author\ Periscal\ Porteiro,\ Juan\n\ @version\ 17/05/2019\n
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
 comment2.params=

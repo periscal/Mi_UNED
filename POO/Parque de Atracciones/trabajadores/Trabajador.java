@@ -3,8 +3,11 @@ import principal.*;
 import java.util.Map;
 import java.util.HashMap;
 /**
- * Abstract class Trabajador - write a description of the class here
- * 
+ * <p> Clase que representa a un trabajador en el parque de atracciones</p>
+ * <p> Las características que se tienen en cuenta para definir todo trabajador
+ *  son su nombre y apellidos, y su sueldo</p>
+ * <p> Para dar cuenta de todas los trabajadores, se dispone como atributos de clase un HashMap que
+ *  almacena todos los trabajadores del parque, además de un contador del total de los mismos</p>
  * @author Periscal Porteiro, Juan
  * @version 17/05/2019
  */
@@ -17,12 +20,15 @@ public abstract class Trabajador extends Persona
     
     protected int  idTrabajador;
     protected float sueldo;
-    /**
-     */
-    public Trabajador(){
-        this.idTrabajador = contadorIdTrabajador++;
-        trabajadores.put(idTrabajador,this);
-    }
+    
+	/**
+	 * <h1><i>Trabajador</i></h1>
+	 * <p><code>public Trabajador(String nombre, String apellidos, float sueldo)</code></p>
+	 * <p> Construye un objeto Trabajador </p>
+	 * @param nombre - nombre del trabajador
+	 * @param apellidos - apellidos trabajador
+	 * @param sueldo - sueldo trabajador
+	 */
     public Trabajador(String nombre, String apellidos, float sueldo){
         super(nombre,apellidos);
         this.idTrabajador = contadorIdTrabajador++;

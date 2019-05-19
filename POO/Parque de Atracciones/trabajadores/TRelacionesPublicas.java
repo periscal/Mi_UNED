@@ -1,9 +1,8 @@
 package trabajadores;
 /**
- * Write a description of class TRelacionesPublicas here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Clase que hereda de <code>Trabajador</code>.
+ * @author Periscal Porteiro, Juan
+ * @version 17/05/2019
  */
 public class TRelacionesPublicas extends Trabajador
 {

@@ -2,6 +2,7 @@ package entradas;
 
 import turistas.Turista;
 import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -139,6 +140,21 @@ public abstract class Entrada
 
 		else e = new EGeneral(turista,ahora,vip);
 
+		// Aumento o descuento en función de la temporada en las que se emite la entrada
+		LocalDate fecha = ahora.toLocalDate();
+		float precio = e.precioEntrada();
+		if( fecha.isAfter(LocalDate.of(2018, 12, 31)) && fecha.isBefore(LocalDate.of(2019,1,9))
+		 || fecha.isAfter(LocalDate.of(2019, 4, 14)) && fecha.isBefore(LocalDate.of(2019,4,22))
+		 || fecha.isAfter(LocalDate.of(2019, 7, 31)) && fecha.isBefore(LocalDate.of(2019,9,1))
+		 || fecha.isAfter(LocalDate.of(2019, 11, 30)) && fecha.isBefore(LocalDate.of(2020,1,1))) {
+			precio+= PRECIO_BASE*(1+15/100);
+			
+		}else if(fecha.isAfter(LocalDate.of(2019, 1, 31)) && fecha.isBefore(LocalDate.of(2019,3,1))
+			|| fecha.isAfter(LocalDate.of(2019, 10, 31)) && fecha.isBefore(LocalDate.of(2019,12,1))) {
+			e.decrementar(15);
+		}
+		
+		//Generación ticket
 		e.ticket ="//////////////////////////\n"
 				+ "Entrada Parque\n\n"
 				+ "Nombre: "+turista.getNombre()+" "+turista.getApellidos()+"\n"

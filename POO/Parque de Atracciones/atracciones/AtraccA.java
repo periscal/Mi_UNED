@@ -1,9 +1,8 @@
 package atracciones;
 /**
- * Write a description of class AtraccA here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Clase que hereda de <code>Atraccion</code>.
+ * @author Periscal Porteiro, Juan
+ * @version 17/05/2019
  */
 public class AtraccA extends Atraccion
 {

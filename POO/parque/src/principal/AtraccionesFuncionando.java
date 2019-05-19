@@ -33,6 +33,12 @@ public class AtraccionesFuncionando
 	private Map<Integer,Float> gastosSemana;
 	private Map<Integer,Float> gastosMes;
 
+	/**
+	 * <h1><i>AtraccionesFuncionando</i></h1>
+	 * <p><code>public AtraccionesFuncionando(int ano)</code></p>
+	 * <p> Construye un objeto AtraccionesFuncionando </p>
+	 * @param ano - año para el que se realiza el analisis del gasto
+	 */
 	public AtraccionesFuncionando(int ano) {
 		this.ano=ano;
 		//Dias del año del cual realizamos las estadisticas

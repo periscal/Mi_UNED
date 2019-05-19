@@ -3,10 +3,10 @@ package entradas;
 import turistas.Turista;
 import java.time.LocalDateTime;
 /**
- * Write a description of class ETarde here.
+ * Clase que hereda de <code>Entrada</code>.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Periscal Porteiro, Juan
+ * @version 17/05/2019
  */
 public class ETarde extends Entrada
 {

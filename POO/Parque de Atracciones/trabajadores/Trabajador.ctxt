@@ -1,11 +1,9 @@
 #BlueJ class context
 comment0.target=Trabajador
-comment0.text=\n\ Abstract\ class\ Trabajador\ -\ write\ a\ description\ of\ the\ class\ here\n\ \n\ @author\ Periscal\ Porteiro,\ Juan\n\ @version\ 17/05/2019\n
-comment1.params=
-comment1.target=Trabajador()
-comment1.text=\n
-comment2.params=nombre\ apellidos\ sueldo
-comment2.target=Trabajador(java.lang.String,\ java.lang.String,\ float)
-comment3.params=
-comment3.target=float\ getSueldo()
-numComments=4
+comment0.text=\n\ <p>\ Clase\ que\ representa\ a\ un\ trabajador\ en\ el\ parque\ de\ atracciones</p>\n\ <p>\ Las\ caracter\u00EDsticas\ que\ se\ tienen\ en\ cuenta\ para\ definir\ todo\ trabajador\n\ \ son\ su\ nombre\ y\ apellidos,\ y\ su\ sueldo</p>\n\ <p>\ Para\ dar\ cuenta\ de\ todas\ los\ trabajadores,\ se\ dispone\ como\ atributos\ de\ clase\ un\ HashMap\ que\n\ \ almacena\ todos\ los\ trabajadores\ del\ parque,\ adem\u00E1s\ de\ un\ contador\ del\ total\ de\ los\ mismos</p>\n\ @author\ Periscal\ Porteiro,\ Juan\n\ @version\ 17/05/2019\n
+comment1.params=nombre\ apellidos\ sueldo
+comment1.target=Trabajador(java.lang.String,\ java.lang.String,\ float)
+comment1.text=\n\ <h1><i>Trabajador</i></h1>\n\ <p><code>public\ Trabajador(String\ nombre,\ String\ apellidos,\ float\ sueldo)</code></p>\n\ <p>\ Construye\ un\ objeto\ Trabajador\ </p>\n\ @param\ nombre\ -\ nombre\ del\ trabajador\n\ @param\ apellidos\ -\ apellidos\ trabajador\n\ @param\ sueldo\ -\ sueldo\ trabajador\n
+comment2.params=
+comment2.target=float\ getSueldo()
+numComments=3

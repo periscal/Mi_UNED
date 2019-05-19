@@ -1,7 +1,6 @@
 package trabajadores;
 /**
- * Write a description of class TResponsableAtr here.
- *
+ * Clase que hereda de <code>Trabajador</code>.
  * @author Periscal Porteiro, Juan
  * @version 17/05/2019
  */

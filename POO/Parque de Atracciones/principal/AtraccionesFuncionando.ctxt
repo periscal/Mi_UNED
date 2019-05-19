@@ -1,8 +1,9 @@
 #BlueJ class context
 comment0.target=AtraccionesFuncionando
-comment0.text=\n\ La\ clase\ AtraccionesFuncionando\ \ indicara,\ para\ un\ a\u00F1o\ natural,\ que\ atracciones\ de\ las\ que\ estan\ disponibles\n\ estan\ activoas\ (el\ usuario\ puede\ usarlas)\ o\ no.\ Las\ atracciones\ que\ esten\ inactivas\ implica\ que\ no\ requeriran\n\ de\ los\ servicios\ de\ los\ trabajadores\ correspondientes,\ lo\ que\ hace\ fluctuar\ los\ costes\ laborales.\n\ \n\ @author\ Periscal\ Porteiro,\ Juan\n\ @version\ 17/05/2019\n
+comment0.text=\n\ La\ clase\ AtraccionesFuncionando\ \ indicara,\ para\ un\ a\u00F1o\ natural,\ que\ atracciones\ de\ las\ que\ estan\ disponibles\n\ estan\ activas\ (el\ usuario\ puede\ usarlas)\ o\ no.\ Las\ atracciones\ que\ esten\ inactivas\ implica\ que\ no\ requeriran\n\ de\ los\ servicios\ de\ los\ trabajadores\ correspondientes,\ lo\ que\ hace\ fluctuar\ los\ costes\ laborales.\n\ \n\ @author\ Periscal\ Porteiro,\ Juan\n\ @version\ 17/05/2019\n
 comment1.params=ano
 comment1.target=AtraccionesFuncionando(int)
+comment1.text=\n\ <h1><i>AtraccionesFuncionando</i></h1>\n\ <p><code>public\ AtraccionesFuncionando(int\ ano)</code></p>\n\ <p>\ Construye\ un\ objeto\ AtraccionesFuncionando\ </p>\n\ @param\ ano\ -\ a\u00F1o\ para\ el\ que\ se\ realiza\ el\ analisis\ del\ gasto\n
 comment10.params=
 comment10.target=float\ gastoPromSemana()
 comment11.params=

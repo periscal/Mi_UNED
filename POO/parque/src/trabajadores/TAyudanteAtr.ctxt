@@ -1,7 +1,0 @@
-#BlueJ class context
-comment0.target=TAyudanteAtr
-comment0.text=\n\ Write\ a\ description\ of\ class\ TAyudanteAtr\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=nombre\ apellidos
-comment1.target=TAyudanteAtr(java.lang.String,\ java.lang.String)
-comment1.text=\n\ Constructor\ for\ objects\ of\ class\ TAyudanteAtr\n
-numComments=2
