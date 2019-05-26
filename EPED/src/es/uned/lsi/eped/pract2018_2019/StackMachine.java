@@ -17,9 +17,8 @@ public class StackMachine {
 	}
 
 	public Operand execute(SynTree syn) {
-		BTree<Node> b=syn.getSynTree();
 		postOrden(syn.getSynTree());
-		return pila.getTop()/*(new Operand("0"))*/;
+		return pila.getTop();
 	}
 
 	/* Recorrido del arbol en postorden */

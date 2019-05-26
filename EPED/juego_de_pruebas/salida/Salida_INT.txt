@@ -1,0 +1,46 @@
+#Conjunto de pruebas para maquina de pilas
+2
+35
+14
+30
+13
+108
+27
+13
+13
+22
+18
+#Conjunto de pruebas para suma
+9999
+9999
+10000
+9999
+-10001
+0
+# Notese que el resultado de esta suma no es valido en la representacion de INT
+-2147483643
+-42579
+110
+-70
+#Conjunto de pruebas para resta
+-1
+1
+-1
+0
+25
+-8
+-11
+-11
+-12
+-51638
+#Conjunto de pruebas para multiplicacion
+0
+0
+0
+-4563
+1234
+-8586
+-136
+7744
+2160
+-794

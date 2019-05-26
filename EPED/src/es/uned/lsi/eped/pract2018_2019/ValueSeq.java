@@ -1,79 +1,60 @@
 package es.uned.lsi.eped.pract2018_2019;
 
-import es.uned.lsi.eped.DataStructures.List;
+import es.uned.lsi.eped.DataStructures.Queue;
 
 public class ValueSeq extends Value {
 	/* Atributo que guarda el valor numerico */
-	private List<Integer> listaEnteros;
-	private ValorConAcarreo valor;
-	//int longitud; 
+	private Queue<Integer> colaCifras;
 
-	/* Constructor: recibe un String con el valor numerico */
+	/**
+	 * <h2><i> ValueSeq</i></h2> 
+	 * <p><code>public ValueSeq(String s)</code></p>
+	 * <p> Crea una Cola (Queue) de enteros a partir de las cifras
+	 * contenidas en la cadena de caracteres del parámetro</p>
+	 * @param s cadena de caracteres con las cifras del numero
+	 */
 	public ValueSeq(String s) {
-		listaEnteros= new List<>();
-		fragmentarNumero(s,listaEnteros);
-		imprimeLista();
-		valor = new ValorConAcarreo();
+		colaCifras= new Queue<>();
+		char[] cifras = s.toCharArray();
+		for(int i = cifras.length-1; i>=0; i--) {//Se introducen primero las cifras de la derecha del nuemro
+			colaCifras.enqueue(Character.getNumericValue(cifras[i]));
+		}
 	}
 
 	/*Metodo que transforma el valor numerico en un String */
 	public String toString() {
-		String entero="";
-		for(int i=1;i<=listaEnteros.size();i++) entero=String.valueOf(listaEnteros.get(i))+" "+entero;
+		String entero= "";
+		Integer cabezaCola;
+		for(int i=1;i<=colaCifras.size();i++) {
+			cabezaCola = colaCifras.getFirst();
+			entero=cabezaCola+entero;
+			colaCifras.dequeue();
+			colaCifras.enqueue(cabezaCola);
+		}
 		return entero;
 	}
 
 	/* Metodo que modifica el valor numerico llamante, sumandole el valor numerico paremetro */
+	/**
+	 * <h2><i> addValue</i></h2> 
+	 * <p><code>public void addValue(Value n)</code></p>
+	 * <p> Metodo que modifica el valor numerico llamante,
+	 *  sumandole el valor numerico paremetro</p>
+	 * @param n valor número que se le sumará al valor del llamante
+	 */
 	public void addValue(Value n) {
-		List<Integer> lista2 = ((ValueSeq) n).getListaEnteros();
+		Queue<Integer> colaMenor;
+		Queue<Integer> colaMayor;
 
-		int longitud1 = this.listaEnteros.size();
-		int longitud2 = lista2.size();
-		int longitudMayor;
-		int longitudMenor;
-
-		/* Otra forma de escribirlo: ç
-		 * longitudMayor = longitud1>=longitud2 ?  longitud1 : longitud2; */
-		if(longitud1>=longitud2) {
-			longitudMayor=longitud1;
-			longitudMenor=longitud2;
+		if(this.colaCifras.size()>=((ValueSeq) n).colaCifras.size()) {
+			colaMayor = this.colaCifras;
+			colaMenor = ((ValueSeq) n).colaCifras;
 		}
 		else {
-			longitudMayor=longitud2;
-			longitudMenor=longitud1;
+			colaMayor = ((ValueSeq) n).colaCifras;
+			colaMenor = this.colaCifras;
 		}
-
-		int pos=1;
-		valor.acarreo=0;
-		Integer entero1;
-		Integer entero2;
-		while(pos<=longitudMenor) {
-			entero1 =listaEnteros.get(pos);
-			entero2=lista2.get(pos);
-			entero1+=entero2+valor.acarreo; 
-			valor.acarreoSuma(entero1);
-			listaEnteros.set(pos, valor.entero);
-			pos++;
-		}
-		if(longitud1>=longitud2) {
-			while(valor.acarreo==1) {
-				entero1 =listaEnteros.get(pos);	
-				entero1+=valor.acarreo; 
-				valor.acarreoSuma(entero1);
-				listaEnteros.set(pos, valor.entero);
-				pos++;
-			}
-		}
-		else {
-			while(pos<=longitudMayor) {
-				entero2 =lista2.get(pos);	
-				entero2+=valor.acarreo; 
-				valor.acarreoSuma(entero2);
-				listaEnteros.set(pos, valor.entero);
-				pos++;
-			}
-		}
-		if(valor.acarreo==1)listaEnteros.insert(pos, 1);
+		this.colaCifras=sum(colaMayor,colaMenor);
 	}
 
 	/**
@@ -84,32 +65,12 @@ public class ValueSeq extends Value {
 	 * @param n - valor número que se le restará al valor del llamante
 	 */
 	public void subValue(Value n) {
-		List<Integer> lista2 = ((ValueSeq) n).getListaEnteros();
+		Queue<Integer> colaMayor = this.colaCifras;
+		Queue<Integer> colaMenor = ((ValueSeq) n).colaCifras;
 
-		int longitud2 = lista2.size();
-
-		int pos=1;
-		valor.acarreo=0;
-		Integer entero1;
-		Integer entero2;
-		while(pos<=longitud2) {
-			entero1 =listaEnteros.get(pos);
-			entero2 =lista2.get(pos);
-			entero1-=entero2+valor.acarreo; 
-			valor.acarreoResta(entero1);
-			listaEnteros.set(pos, valor.entero);
-			pos++;
-		}
-		while(valor.acarreo==1) {
-			entero1 =listaEnteros.get(pos);	
-			entero1-=valor.acarreo; 
-			valor.acarreoResta(entero1);
-			listaEnteros.set(pos, valor.entero);
-			pos++;
-		}
-		this.reajustarLista();
+		this.colaCifras=sub(colaMayor,colaMenor);
 	}
-	
+
 	/**
 	 * <h2><i> subFromValue</i></h2> 
 	 * <p><code>subFromValue(Value n) </code></p>
@@ -118,31 +79,9 @@ public class ValueSeq extends Value {
 	 * @param n - valor número al que se le restará el valor del llamante
 	 */
 	public void subFromValue(Value n) {
-		List<Integer> lista2 = ((ValueSeq) n).getListaEnteros();
-		System.out.println("----Usando subFromValue -------");
-		int longitud1 = this.listaEnteros.size();
-		int longitud2 = lista2.size();
-		int pos=1;
-		valor.acarreo=0;
-		Integer entero1;
-		Integer entero2;
-		while(pos<=longitud1) {
-			entero1 =listaEnteros.get(pos);
-			entero2 =lista2.get(pos);
-			entero2-=entero1+valor.acarreo; 
-			valor.acarreoResta(entero2);
-			listaEnteros.set(pos, valor.entero);
-			pos++;
-		}
-		while(pos<=longitud2) {
-			entero2 =lista2.get(pos);	
-			entero2-=valor.acarreo; 
-			valor.acarreoResta(entero2);
-			listaEnteros.set(pos, valor.entero);
-			pos++;
-		}
-		this.reajustarLista();
-
+		Queue<Integer> colaMayor = ((ValueSeq) n).colaCifras;
+		Queue<Integer> colaMenor = this.colaCifras;
+		this.colaCifras=sub(colaMayor,colaMenor);
 	}
 
 	/**
@@ -150,159 +89,174 @@ public class ValueSeq extends Value {
 	 * <p><code>public void multValue(Value n) </code></p>
 	 * <p> Método que modifica el valor numérico llamante,
 	 * multiplicándolo por el valor numérico parámetro</p>
-	 * @param n - valor número por el que se multiplicará el llamante
+	 * @param n valor número por el que se multiplicará el llamante
 	 */
 	public void multValue(Value n) {
-		List<Integer> resultado = new List<>(); // lista donde se almacenara el resultado
-		List<Integer> lista2 = ((ValueSeq) n).getListaEnteros();
-		List<Integer> listaMayor;
-		List<Integer> listaMenor;
-		
-		int mult;    // fragmento del número del operando mayor
-		int rMult;   // resultado de multiplicar 'mult' por un digito
-		int rAcarreo=0;// el acarreo del la multiplicacion por un digito
-		valor.acarreo=0;
-		int longitud1 = this.listaEnteros.size();
-		int longitud2 = lista2.size();
-		int longitudMayor;
-		int longitudMenor;
+		Queue<Integer> resultado = new Queue<>();
 
-		if(longitud1>=longitud2) {
-			listaMayor = this.listaEnteros;
-			listaMenor = lista2;
+		Queue<Integer> colaMenor;
+		Queue<Integer> colaMayor;
+
+		if(this.colaCifras.size()>=((ValueSeq) n).colaCifras.size()) {
+			colaMayor = this.colaCifras;
+			colaMenor = ((ValueSeq) n).colaCifras;
 		}
 		else {
-			listaMayor = lista2;
-			listaMenor = this.listaEnteros;
+			colaMayor = ((ValueSeq) n).colaCifras;
+			colaMenor = this.colaCifras;
 		}
-		
-		longitudMayor = listaMayor.size();
-		longitudMenor = listaMenor.size();
-		
-		for(int posMenor=1; posMenor<=longitudMenor;posMenor++) {
-			char[] arrayDigitos = Character.toChars(listaMenor.get(posMenor));
-			
-			for(int posChar=0; posChar<arrayDigitos.length; posChar++) {
-				int digito = Character.getNumericValue(arrayDigitos[posChar]);
-				
-				for(int posMayor=1; posMayor<=longitudMayor;posMayor++) {
-					mult 	= listaMayor.get(posMayor)*digito+valor.acarreo;
-					/*rMult 	= mult%10^(posMayor-1);//Math.pow(10, posMayor-1);
-					rAcarreo= mult/10^(posMayor-1);*/
-					valor.acarreoMult(mult);
-					resultado.set(posMayor, valor.entero); 
-				}
-			}
+
+		int multiplicador;
+		for(int i=0;i<colaMenor.size();i++) {
+			multiplicador=colaMenor.getFirst(); // Obtenemos la cabeza de la cola
+			colaMenor.enqueue(multiplicador); //El primer elemento pasa a ser el ultimo de la cola
+			colaMenor.dequeue(); 
+
+			resultado = sum(mult(colaMayor,multiplicador,i), resultado);
 		}
+		this.colaCifras=resultado;
 	}
-	
+
 	/**
 	 * <h2><i> greater</i></h2> 
 	 * <p><code>public boolean greater(Value n) </code></p>
 	 * <p> Método que indica si el valor numérico llamante es mayor que el valor numérico parámetro</p>
 	 * <p>Primero: compara las longitudes de los enteros, el de mayor longitud será necesariamente el número más grande</p>
-	 * <p>Segundo: si son de longitudes iguales, se comparan cada fragmento de ambos números almacenados en listas,
-	 * empezando por los dígitos de más a la izquierda del número (los que se sitúan al final de la cola de la lista)</p>
-	 * @param n - valor número con el que se comapra el llamante
+	 * <p>Segundo: si son de longitudes iguales, se comparan cada cifra.Al tratarse de colas, se comienza la comparacion
+	 * por las cifras de la derecha, ya que han sido las primera en encolarse</p>
+	 * @param n valor número con el que se comapra el llamante
 	 */
 	public boolean greater(Value n) {
-		List<Integer> lista2 = ((ValueSeq) n).getListaEnteros();
-		int longitud1 = this.listaEnteros.size();
-		int longitud2 = lista2.size();
+		Queue<Integer> colaParametro = ((ValueSeq) n).colaCifras;
+		int llamanteLength = this.colaCifras.size();
+		int parametroLength = colaParametro.size();
 		boolean mayor=false;
 
-		if     (longitud1>longitud2) mayor=true;
-		else if(longitud1<longitud2) mayor=false;
-		else {
-			int pos=longitud1;
-			while(listaEnteros.get(pos).equals(lista2.get(pos)) && pos>0) pos--;
-			if(pos==0) mayor=false;
-			else mayor=listaEnteros.get(pos)>lista2.get(pos)? true : false;
+		if     (llamanteLength>parametroLength) mayor=true;
+		else if(llamanteLength<parametroLength) mayor=false;
+		else { 
+			//Si no se cumple lo anterior serán iguales
+			int valorLlamante;
+			int valorParametro;
+			for(int i=0; i<llamanteLength;i++) {
+				valorLlamante = colaCifras.getFirst();
+				valorParametro = colaParametro.getFirst();
+				if     (valorLlamante > valorParametro) mayor=true;
+				else if(valorLlamante < valorParametro) mayor=false;
+				colaCifras.dequeue();
+				colaParametro.dequeue();
+			}
 		}
 		return mayor;
 	}
 
 	/* Método que indica si el valor numérico es cero */
 	public boolean isZero() {
-		return listaEnteros.size()==1 && listaEnteros.get(1)==0;
-	}
-
-	// ==============================================================================================//
-	public List<Integer> getListaEnteros() {
-		return listaEnteros;
-	}
-
-	/**
-	 * Fragmenta un String en una lista de numeros enteros
-	 * @param s
-	 * @param bloquesEnteros
-	 */
-	private void fragmentarNumero(String s, List<Integer> bloquesEnteros/*,int digitosXbloque*/) {
-		int longitud = s.length();
-		int tamanoTipoEntero=9;
-
-		int pos=1;
-
-		if(longitud>tamanoTipoEntero){
-			int endIndex =longitud;
-			int beginIndex=endIndex-tamanoTipoEntero;
-
-			bloquesEnteros.insert(pos, Integer.parseInt(s.substring(beginIndex)));
-			endIndex=beginIndex;
-			beginIndex-=tamanoTipoEntero;
-			++pos;
-
-			while(endIndex>=tamanoTipoEntero) {
-				bloquesEnteros.insert(pos, Integer.parseInt(s.substring(beginIndex, endIndex)));
-				endIndex=beginIndex;
-				beginIndex-=tamanoTipoEntero;
-				++pos;
-			}
-			if(endIndex < tamanoTipoEntero && endIndex>0) bloquesEnteros.insert(pos, Integer.parseInt(s.substring(0, endIndex)));			
+		boolean zero = true;
+		int valor=0;
+		for(int i=0;i<colaCifras.size();i++) {
+			zero = ((valor=colaCifras.getFirst())==0);
+			colaCifras.enqueue(valor);
+			colaCifras.dequeue();
 		}
-		else bloquesEnteros.insert(pos, Integer.parseInt(s));
+		return zero;
 	}
 
-	private class ValorConAcarreo{
-		Integer entero;
-		int acarreo=0;
-		int cotaEntero=1000000000;
+	//----------------------------------------------------------------------
 
-		public void acarreoSuma(Integer e) {
-			acarreo=0;
-			if(e>cotaEntero) {
-				e-=cotaEntero;
-				acarreo=1;
-			}
-			entero=e;
+	private Queue<Integer> sum(Queue<Integer> colaMayor,Queue<Integer> colaMenor){
+		Queue<Integer> resultado = new Queue<>();
+		int suma;
+		int cifra;
+		int acarreo =0;
+
+		while(!colaMenor.isEmpty()) {
+			suma = colaMayor.getFirst()+colaMenor.getFirst()+acarreo;
+			cifra=suma%10;
+			acarreo=suma/10;
+			resultado.enqueue(cifra);
+			colaMayor.dequeue();
+			colaMenor.dequeue();
 		}
-
-		public void acarreoResta(Integer e) {
-			acarreo=0;
-			if(e<0) {
-				e+=cotaEntero;
-				acarreo=1;
-			}
-			entero=e;
+		while(!colaMayor.isEmpty()){
+			suma = colaMayor.getFirst()+acarreo;
+			cifra=suma%10;
+			acarreo=suma/10;
+			resultado.enqueue(cifra);
+			colaMayor.dequeue();
 		}
-		public void acarreoMult(Integer e) {
-			acarreo=0;
-			if(e>cotaEntero) {
-				e=e%cotaEntero;
-				acarreo=e/cotaEntero;
-			}
+		if(acarreo!=0) resultado.enqueue(acarreo);
+		
+		return resultado;
+	}
+
+	private Queue<Integer> sub(Queue<Integer> colaMayor,Queue<Integer> colaMenor){
+		Queue<Integer> resultado = new Queue<>();
+		int resta;
+		int cifra;
+		int acarreo =0;
+		int ultimoNoCero =0;
+		int cont =0;
+		
+		//Se realiza la resta hasta agotar la cola menor
+		while(!colaMenor.isEmpty()) {
+			resta = colaMayor.getFirst()-colaMenor.getFirst()-acarreo;
+			cifra = resta<0? resta + 10 : resta;
+			acarreo=resta<0? 1 : 0;
+			resultado.enqueue(cifra);
+			colaMayor.dequeue();
+			colaMenor.dequeue();
+			cont++;
+			if(cifra!=0) ultimoNoCero=cont;
 		}
+		
+		//Se realiza la resta con el acarreo para la cola mayor
+		while(!colaMayor.isEmpty()) {
+			resta = colaMayor.getFirst()-acarreo;
+			cifra = resta<0? resta + 10 : resta;
+			acarreo=resta<0? 1 : 0;
+			resultado.enqueue(cifra);
+			colaMayor.dequeue();
+			cont++;
+			if(cifra!=0) ultimoNoCero=cont;
+		}
+		
+		//Lo ceros a la izquierda se mueven a la cabeza de la cola
+		for(int i =0; i<ultimoNoCero;i++) {
+			resultado.enqueue(resultado.getFirst());
+			resultado.dequeue();
+		}
+		
+		// Se eliminan los ceros a la izquierda del numero
+		int tamano = resultado.size();
+		for(int i =ultimoNoCero; i<tamano;i++) {
+			resultado.dequeue();
+		}
+		//Si la cola resultado queda vacía, entonces ésta debe representar el valor "0"
+		if(resultado.size()==0) resultado.enqueue(0);
+		
+		return resultado;
 	}
+	
+	private Queue<Integer> mult(Queue<Integer> colaMayor, int num, int pos){
+		Queue<Integer> resultado = new Queue<>();
+		int mult;
+		int cifra;
+		int acarreo =0;
 
-	private void reajustarLista() {
-		int pos =  listaEnteros.size();
-		while(listaEnteros.get(pos).equals(0))	listaEnteros.remove(pos--);
-		if(listaEnteros.isEmpty()) listaEnteros.insert(1,0);
+		//Ponemos tantos 0's según como corresponda a la posición de la cifra multiplicadora
+		for(int i=0;  i<pos; i++) resultado.enqueue(0);
+
+		for(int i=0;  i<colaMayor.size(); i++) {
+			mult = colaMayor.getFirst()*num + acarreo;
+			cifra=mult%10;
+			acarreo=mult/10;
+			resultado.enqueue(cifra);
+			colaMayor.enqueue(colaMayor.getFirst());
+			colaMayor.dequeue();
+		}
+		if(acarreo!=0) resultado.enqueue(acarreo);
+
+		return resultado;
 	}
-
-	private void imprimeLista() {
-		for(int i=listaEnteros.size();i>0;i--) System.out.print(listaEnteros.get(i)+" ");
-		System.out.println("\n");
-	}
-
 }
