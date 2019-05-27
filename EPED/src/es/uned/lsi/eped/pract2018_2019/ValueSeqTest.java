@@ -7,28 +7,31 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class ValueSeqTest {
-	String numero1 = "1008";
-	String numero2 = "2098";
+	String numero1 = "12";
+	String numero2 = "12";
 
-	ValueSeq mayor;
-	ValueSeq menor;
+	Operand valor1;
+	Operand valor2;
 	BigInteger b1;
 	BigInteger b2;
 
 	@Before
 	public void before() {
-		ValueSeq valor1 = new ValueSeq(numero1);
-		ValueSeq valor2 = new ValueSeq(numero2);
+		Value.valueClass = Value.ValueClass.SEQ;
+		valor1 = new Operand(numero1);
+		valor2 = new Operand(numero2);
+		
 		b1 = new BigInteger(numero1);
 		b2 = new BigInteger(numero2);
+		/*
 		int comp=b1.compareTo(b2);
-		mayor = (comp>=0)? valor1:valor2;
-		menor = (comp>0)? valor2:valor1;
+		valor1 = (comp>=0)? valor1:valor2;
+		valor2 = (comp>0)? valor2:valor1;*/
 	}
 	
 	@Test
 	public void testToString() {
-		ValueSeq valor1 = new ValueSeq(numero1);
+		//ValueSeq valor1 = new ValueSeq(numero1);
 		assertEquals(numero1, valor1.toString());
 	}
 
@@ -36,46 +39,52 @@ public class ValueSeqTest {
 	@Test
 	public void testAddvalueSeq() {
 		b1=b1.add(b2);
-		mayor.addValue(menor);
-		System.out.println("Suma -> esperado: "+b1.toString()+", obtenido: "+ mayor.toString());
-		assertEquals(b1.toString(),mayor.toString());
+		valor1.add(valor2);
+		System.out.println("Suma -> esperado: "+b1.toString()+", obtenido: "+ valor1.toString());
+		assertEquals(b1.toString(),valor1.toString());
 	}
 
 	@Test
 	public void testMultValueSeq() {
 		
 		b1=b1.multiply(b2);
-		mayor.multValue(menor);
+		valor1.mult(valor2);
 
-		System.out.println("Mult -> esperado: "+b1.toString()+", obtenido: "+ mayor.toString());
-		assertEquals(b1.toString(),mayor.toString());
+		System.out.println("Mult -> esperado: "+b1.toString()+", obtenido: "+ valor1.toString());
+		assertEquals(b1.toString(),valor1.toString());
 	}
 	
 	@Test
 	public void testSubValueSeq() {
 		
 		b1=b1.subtract(b2);
-		mayor.subValue(menor);
+		valor1.sub(valor2);
 
-		System.out.println("Sub -> esperado: "+b1.toString()+", obtenido: "+ mayor.toString());
-		assertEquals(b1.abs().toString(),mayor.toString());
+		System.out.println("Sub -> esperado: "+b1.toString()+", obtenido: "+ valor1.toString());
+		assertEquals(b1.toString(),valor1.toString());
 	}
-	
+	/*
 	@Test
 	public void testSubFromValueSeq() {
 		b2=b2.subtract(b1);
-		menor.subFromValue(mayor);
+		valor2.subFromValue(valor1);
 
-		System.out.println("SubFrom -> esperado: "+b2.toString()+", obtenido: "+ menor.toString());
-		assertEquals(b2.toString(),menor.toString());
-	}
-	
+		System.out.println("SubFrom -> esperado: "+b2.toString()+", obtenido: "+ valor2.toString());
+		assertEquals(b2.toString(),valor2.toString());
+	}*/
+	/**/
 	@Test
 	public void testGreater() {
-		ValueSeq valor1 = new ValueSeq(numero1);
-		ValueSeq valor2 = new ValueSeq(numero2);
+		ValueSeq valor1a;
+		ValueSeq valor2a;
 		int comp=b1.compareTo(b2);
-		assertEquals(comp>0,valor1.greater(valor2));
+		/*valor1 = (comp>=0)? new ValueSeq(numero1):new ValueSeq(numero2);
+		valor2 = (comp>0)? new ValueSeq(numero2):new ValueSeq(numero1);
+		assertEquals(comp>0,valor1.greater(valor2));*/
+		valor1a = new ValueSeq("200");
+		valor2a = new ValueSeq("199");	
+		assertTrue(valor1a.greater(valor2a));
+		assertFalse(valor2a.greater(valor1a));
 	}
 	
 	@Test

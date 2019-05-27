@@ -6,31 +6,31 @@
 0
 #Notese, que en este caso la suma si es correcta ya que SEQ puede representar numeros de longitud mucho mayor
 2147483653
-260
--21
+149
+-45
 1247687325
 #Conjunto de pruebas para resta
+-1
+1
+-1
 0
-0
-0
-0
-28
-0
--116
+25
+-13
+-43
 12222265444911
-91
+113
 #Conjunto de pruebas para multiplicacion
 0
 0
 0
 -4563
 1234
-0
+10296
 128064
-429
+421
 619200
 #Conjunto de pruebas para numeros muy grandes
-0
+-1
 1233615327128192712821921
 447796572313619012275329
 #Un gugol, un uno seguido de cien ceros. Escrito en el sistema binario ocupa 333 bits

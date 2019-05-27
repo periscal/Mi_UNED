@@ -132,8 +132,8 @@ public class ValueSeq extends Value {
 		int parametroLength = colaParametro.size();
 		boolean mayor=false;
 
-		if     (llamanteLength>parametroLength) mayor=true;
-		else if(llamanteLength<parametroLength) mayor=false;
+		if     (llamanteLength>parametroLength) return true;
+		else if(llamanteLength<parametroLength) return false;
 		else { 
 			//Si no se cumple lo anterior serán iguales
 			int valorLlamante;
@@ -141,10 +141,14 @@ public class ValueSeq extends Value {
 			for(int i=0; i<llamanteLength;i++) {
 				valorLlamante = colaCifras.getFirst();
 				valorParametro = colaParametro.getFirst();
-				if     (valorLlamante > valorParametro) mayor=true;
-				else if(valorLlamante < valorParametro) mayor=false;
+				
+				if(valorLlamante > valorParametro)     mayor=true;
+				else if(valorLlamante < valorParametro)mayor=false;
+				
 				colaCifras.dequeue();
+				colaCifras.enqueue(valorLlamante);
 				colaParametro.dequeue();
+				colaParametro.enqueue(valorParametro);
 			}
 		}
 		return mayor;
