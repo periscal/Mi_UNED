@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class ValueSeqTest {
-	String numero1 = "12";
+	String numero1 = "1234567890";
 	String numero2 = "12";
 
 	Operand valor1;
@@ -23,15 +23,10 @@ public class ValueSeqTest {
 		
 		b1 = new BigInteger(numero1);
 		b2 = new BigInteger(numero2);
-		/*
-		int comp=b1.compareTo(b2);
-		valor1 = (comp>=0)? valor1:valor2;
-		valor2 = (comp>0)? valor2:valor1;*/
 	}
 	
 	@Test
 	public void testToString() {
-		//ValueSeq valor1 = new ValueSeq(numero1);
 		assertEquals(numero1, valor1.toString());
 	}
 
@@ -77,10 +72,6 @@ public class ValueSeqTest {
 	public void testGreater() {
 		ValueSeq valor1a;
 		ValueSeq valor2a;
-		int comp=b1.compareTo(b2);
-		/*valor1 = (comp>=0)? new ValueSeq(numero1):new ValueSeq(numero2);
-		valor2 = (comp>0)? new ValueSeq(numero2):new ValueSeq(numero1);
-		assertEquals(comp>0,valor1.greater(valor2));*/
 		valor1a = new ValueSeq("200");
 		valor2a = new ValueSeq("199");	
 		assertTrue(valor1a.greater(valor2a));
