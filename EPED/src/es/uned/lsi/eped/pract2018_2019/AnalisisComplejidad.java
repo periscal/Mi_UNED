@@ -8,7 +8,6 @@ import java.lang.reflect.Modifier;
 import org.junit.Before;
 import org.junit.Test;
 
-import es.uned.lsi.eped.pract2018_2019.*;
 
 public class AnalisisComplejidad {
 	String numeroBase = "1234567890";

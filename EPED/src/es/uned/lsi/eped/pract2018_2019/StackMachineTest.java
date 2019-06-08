@@ -7,8 +7,6 @@ import java.math.BigInteger;
 import org.junit.Before;
 import org.junit.Test;
 
-import es.uned.lsi.eped.DataStructures.BTree;
-
 public class StackMachineTest {
 
 	String numero1 = "12";
