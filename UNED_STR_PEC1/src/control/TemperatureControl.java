@@ -1,136 +1,104 @@
 package control;
 
 /**
- * <br>La clase TemperatureControl contiene la clase main para iniciar el programa de control
- * <br>y contiene los métodos necesarios para interactuar con la cámara de gas
- * <br><br>
- * @author <a href="mailto:fmarcos68@alumno.uned.es">Fernando Marcos Mendez</a>
+ * TemperatureControla toma las acciones pertinentes para mantener
+ * la camara de aire a una temperatura segura. 
+ * <br>El "estado" del control indica las medidas tomadas ante el aumento de temperatura:
+ * <br> 0 - La temperatura es menor que la temperatura limite
+ * <br> 1 - La temperatura es mayor que la temperatura limite
+ * <br> 2 - La temperatura es mayor que la temperatura limite y no ha funcionado el apagado del calentador
+ * <br> 3 - La temperatura es mayor que la temperatura limite y no ha funcionado el aumento del caudal del refrigerante
+ * <br> 4 - La temperatura es mayor que la temperatura limite y no ha funcionado la liberacion del gas mediante la valvula
+ * @author Juan Periscal Porteiro
  * @version 1.0
  */
 public class TemperatureControl {
-	/** La variable temperatura guardará los valores de temperatura de la cámara */
-	private static short temperature;
-	/** La variable status guardará el valor de los distintos estados de la cámara
-	 * 0 - estado inicial de puesta en marcha
-	 * 1 - temperatura elevada
-	 * 2 - no se puede apagar el calentador
-	 * 3 - no se puede bajar la temperatura del gas aumentando el refrigerante
-	 * 4 - no se puede liberar el gas de la cámara
-	 * 5 - finalizar programa de control
+	private  short estado;
+	private int temperaturaLimite;
+
+	/**
+	 * El control comienza en el estado 0 (temperatura segura)
+	 * @param temperaturaLimite temperatura en la cual el control dara alarma y dejara de funcionar
 	 */
-	private static short status;
-	
-    /**
-     * Constructor que inicializará el status a 0 y temperature a 20 (temperatura ambiente)
-     */
-	public TemperatureControl() {
-		status = 0;
-		temperature = 20;
+	public TemperatureControl(int temperaturaLimite) {
+		estado=0;
+		this.temperaturaLimite = temperaturaLimite;
 	}
 
-    /**
-     * Método principal main de la Clase TemperatureControl 
-     * <br>
-     * En primer lugar encendemos la camara y comenzamos a calentar el gas
-     * <br>
-     * Después si la temperatura es elevada (p.e. 50 ºC) llamamos al método safeHeaterOff que controlará el estado de la cámara
-     * 
-     * @param args argumentos del método main
-     * @throws InterruptedException (para el método Thread.sleep)
-     */
-	public static void main(String[] args) throws InterruptedException {
-		//Finalizamos bucle de control cuando hay un estado de pánico y hemos enviado las alertas oportunas
-		while(status != 5) {
-			//Con el estado inicial (status=0) encendemos la cámara
-			if(status == 0) {
-				heaterOn();
-				temperature = 20;
-				//Establecemos un status al azar distinto de los valores de estado controlados
-				status = 100;
-				System.out.println("--> Encendemos la cámara");
-			}
-			
-			//Incrementamos la temperatura de la cámara 1 grado cada segundo
-			temperature++;
-			Thread.sleep(1000);
-			
-			System.out.println("Temperatura: " + temperature);
-			
-			//Cuando la temperatura alcance el valor máximo permitido (p.e. 50ºC) lanzamos método de contingencia
-			if(temperature == 50) {
-				System.out.println("\n[ERROR 1] Temperatura MUY ELEVADA: " + temperature);
-				System.out.println("--> Lanzamos método de contingencia");
-				safeHeaterOff();
-			}
-		}
-		
-		System.out.println("\nFinalizamos el programa de control");
-		Thread.sleep(5000);
+	/**
+	 * Encendido del calentador de la camara
+	 */
+	public void heaterOn() {
+		System.out.println("\n** Calentador camara encendido\n ");
 	}
-	
-	/** Método para encender el calentador de la cámara */
-	public static void heaterOn() {
-	}
-	
-	/** Método para apagar el calentador de la cámara */
+
+
+	/**
+	 * Apagado del calentador de la camara
+	 * @throws HeaterStuckOn
+	 */
 	public void heaterOff() throws HeaterStuckOn {
-		throw new HeaterStuckOn("\n[ERROR 2] No se ha podido apagar la camara"); 
+		throw new HeaterStuckOn("\n<!> Fallo en el apagado del calentador de la camara \n"); 
 	}
-	
-	/** Método para inyectar más refrigerante para bajar la temperatura */
+
+	/**
+	 * Incremento del caudal del refrigerante
+	 * @throws TemperatureStillRising
+	 */
 	public void increaseCoolant() throws TemperatureStillRising {
-		throw new TemperatureStillRising("\n[ERROR 3] No se ha podido reducir la temperatura de la cámara inyectando mas refrigerante");
+		throw new TemperatureStillRising("\n<!!> No se logra bajar la temperatura de la camara tras el incremento del caudal del refrigerante\n ");
 	}
-	
-	/** Método para abrir la cámara y expulsar el gas */
+
+	/**
+	 * Apertura valvula de liberacion del gas de la camara
+	 * @throws ValveStuck
+	 */
 	public void openValve() throws ValveStuck {
-		throw new ValveStuck("\n[ERROR 4] No se ha podido abrir la válvula de escap de la cámara de gas");
+		throw new ValveStuck("\n<!!!> Fallo en la apertura de la valvula para la liberacion del gas\n ");
 	}
-	
-	/** Método para hacer sonar la alarma y alertar a los servicios de emergencia */
+
+
+	/**
+	 *  Sonar la alarma y alertar a los servicios de emergencia 
+	 */
 	public void panic() {
-		System.out.println("\n[ERROR] ALERTA: No se puede abrir la válvula de escape de la CAMARA DE GAS");
-		System.out.println("\n--> Encendemos la alarma. Enviamos SMS, Telegram y Mails de Alertas. Realizamos llamada de Emergencia al telefono de Guardia");
+		System.out.println("\n<!!!!> ALERTA: Han fallado todas las medidas de control de temperatura!!!.La temperatura sigue subiendo!!!\n ");
 	}
-	
-	/** Método de contingencia que intentará apagar el calentador de la cámara, inyectar más refrigerante, abrir la válvula de escape o encender la alarma y alertar */
-	public static void safeHeaterOff() {
-		TemperatureControl camera = new TemperatureControl();
-		status = 1;
-		
-		//Mientras status no sea 0 ni 5, vamos recorriendo cada método de contingencia en orden según el enunciado
-		while(status != 0 && status != 5) {
+
+	/**
+	 * Recibe la temperatura y actua segun el estado en que se encuentre el control
+	 * @param temperaturaCamara Temperatura interior de la camara
+	 * @return devuleve el estado del control de temperatura
+	 */
+	public short recibeTemperatura(int temperaturaCamara) {
+		if(temperaturaCamara> temperaturaLimite) {
 			try {
-				Thread.sleep(1000);
-				switch(status) {
+				switch(estado) {
 				case 1:
-					camera.heaterOff();
-					System.out.println("--> Se ha apagado la cámara correctamente");
-					status = 0;
+					this.heaterOff();
+					System.out.println("\n ** Apagado de calentador\n ");
 					break;
 				case 2:
-					camera.increaseCoolant();
-					System.out.println("--> Se ha inyectado refrigerante y ha disminuido la temperatura");
-					status = 0;
+					this.increaseCoolant();
+					System.out.println(" \n ** Incrementado caudal refrigerante\n ");
 					break;
 				case 3:
-					camera.openValve();
-					System.out.println("--> Se ha abierto la cámara y se ha evacuado el gas");
-					status = 0;
+					this.openValve();
+					System.out.println("\n ** Abierta valvula para liberacion gas\n ");
 					break;
 				case 4:
-					camera.panic();
-					status = 5;
+					this.panic();
+					estado =5;
+					break;
+				default: 
+					estado =1;
 					break;
 				}
-			} catch (InterruptedException e) {
-			} catch(HeaterStuckOn e1) {
-				status = 2;
-			} catch(TemperatureStillRising e2) {
-				status = 3;
-			} catch(ValveStuck e3) {
-				status = 4;
-			}
+			} 
+			catch(HeaterStuckOn | TemperatureStillRising | ValveStuck e ) {
+				estado++;
+			} 
 		}
+		return estado;
 	}
 }
