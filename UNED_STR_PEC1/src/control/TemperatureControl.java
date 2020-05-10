@@ -10,7 +10,6 @@ package control;
  * <br> 3 - La temperatura es mayor que la temperatura limite y no ha funcionado el aumento del caudal del refrigerante
  * <br> 4 - La temperatura es mayor que la temperatura limite y no ha funcionado la liberacion del gas mediante la valvula
  * @author Juan Periscal Porteiro
- * @version 1.0
  */
 public class TemperatureControl {
 	private  short estado;
@@ -62,7 +61,8 @@ public class TemperatureControl {
 	 *  Sonar la alarma y alertar a los servicios de emergencia 
 	 */
 	public void panic() {
-		System.out.println("\n<!!!!> ALERTA: Han fallado todas las medidas de control de temperatura!!!.La temperatura sigue subiendo!!!\n ");
+		System.out.println("\n<!!!!> ALERTA: Han fallado todas las medidas de control de temperatura!!!."
+				+ "La temperatura sigue subiendo!!!\n ");
 	}
 
 	/**

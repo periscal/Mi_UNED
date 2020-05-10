@@ -3,86 +3,74 @@ package comun;
 /**
  * 
  * @author Juan Periscal Porteiro
- *
  */
 public class Event implements Runnable{
-	private int highPriorityWaiting;
-	private int lowPriorityWaiting;
-	private Object highWaiter;
-	private Object lowWaiter;
+	private int esperaAltaPrioridad;
+	private int esperaBajaPrioridad;
 
+	//CONSTRUCTOR
 	public Event(){
-		highPriorityWaiting = 0;
-		lowPriorityWaiting = 0;
-		highWaiter = new Object();
-		lowWaiter = new Object();
-
+		esperaAltaPrioridad = 0;
+		esperaBajaPrioridad = 0;
 	}
 
+	//METODOS
 	/**
 	 * Espera de alta prioridad
 	 */
-	public synchronized void highPriorityWait() throws InterruptedException{
-		synchronized(highWaiter) {
-			synchronized(this) {
-				highPriorityWaiting++;
-				if (highPriorityWaiting==1) {
-					this.signalEvent();
-					return;
-				}
-			}
-			highWaiter.wait();
+	public synchronized void WaitAltaPrioridad() throws InterruptedException{
+		esperaAltaPrioridad++;
+		if (esperaAltaPrioridad==1) {
+			this.signalEvent();
+			return;
 		}
 	};
 
 	/**
 	 * Espera de baja prioridad
 	 */
-	public synchronized void lowPriorityWait() throws InterruptedException{
-		synchronized(lowWaiter) {
-			synchronized(this) {
-				lowPriorityWaiting++;
-				if (lowPriorityWaiting==1) {
-					this.signalEvent();
-					return;
-				}
-			}
-			lowWaiter.wait();
+	public synchronized void WaitBajaPrioridad() throws InterruptedException{
+		esperaBajaPrioridad++;
+		if (esperaBajaPrioridad==1) {
+			this.signalEvent();
+			return;
 		}
 	};
 
 	/**
-	 * @throws InterruptedException 
-	 * 
+	 * Este metodo se encarga de liberar un hilo de alta prioridad, 
+	 * si existe alguno en espera. Si no, libera un hilo de espera
+	 * de baja prioridad. Y si no hay presente ningun hilo a la espera
+	 * este metodo no tiene efecto. 
+	 * @throws InterruptedException  
 	 */
 	public synchronized void signalEvent() throws InterruptedException{
-		synchronized(highWaiter) {
-			synchronized(lowWaiter) {
-				synchronized(this) { 
-					if(highPriorityWaiting > 0) {
-						highWaiter.notify();
-						highPriorityWaiting--;
-					} else if (lowPriorityWaiting > 0) {
-						lowWaiter.notify();
-						lowPriorityWaiting--;
-					}
-					Thread.sleep(1*1000); // el hilo espera 1 seg para liberarse
-					System.out.println("Hilo "+Thread.currentThread().getId()+" liberado");
-				}
+		synchronized(this) { 
+			if(esperaAltaPrioridad > 0) {
+				this.notify();
+				esperaAltaPrioridad--;
+			} else if (esperaBajaPrioridad > 0) {
+				this.notify();
+				esperaBajaPrioridad--;
 			}
+			Thread.sleep(1*1000); // el hilo espera 1 seg para liberarse
+			System.out.println("Hilo "+Thread.currentThread().getId()+" liberado");
 		}
 	};
 
+	/**
+	 * Cuando se ejecuta este metodo el Evento se decide aleatoriamente
+	 *  que tipo de espera se hara, de Alta o de Baja prioridad
+	 */
 	@Override
 	public void run(){
-		// Se decide aleatoriamente que tipo de "Wait" se hara, de Alta o de Baja prioridad
 		java.util.Random aleatorio = new java.util.Random();
 
 		try {
 			if (aleatorio.nextInt()%2 == 0) {
-				this.highPriorityWait();
+				this.WaitAltaPrioridad();
 			}else {
-				this.lowPriorityWait();
+				this.WaitBajaPrioridad();
 			}
 		}catch(InterruptedException e) {};
 	};
